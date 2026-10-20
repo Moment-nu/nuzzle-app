@@ -891,27 +891,17 @@ function PhoneShell() {
   const { theme, screen } = useApp();
   const Screen = SCREENS[screen];
   return (
-    <div style={{ width: 375, height: 780, background: "#1c1a19", borderRadius: 46, padding: 12, boxShadow: "0 30px 60px rgba(0,0,0,0.25)" }}>
-      <div style={{ position: "relative", width: "100%", height: "100%", background: theme.bg, borderRadius: 34, overflow: "hidden" }}>
-        
-        {/* 카메라 노치 */}
-        <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: 120, height: 26, background: "#1c1a19", borderRadius: "0 0 16px 16px", zIndex: 30 }} />
-        
-        {/* 상태 표시줄: 뒷배경을 하얗게 채워서 스크롤이 통과해 비치는 현상 완벽 차단! */}
-        <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 44, background: screen === "splash" ? theme.bg : theme.white, zIndex: 25, borderRadius: "34px 34px 0 0" }}>
-          <StatusBar />
-        </div>
-
-        {/* 스크롤 영역: StatusBar 공간을 피해서 아래부터 시작하도록 분리 */}
-        <div className="app-scroll" style={{ position: "absolute", top: 44, left: 0, right: 0, bottom: 0, overflowY: screen === "splash" || screen === "map" ? "hidden" : "auto" }}>
-          <Screen />
-        </div>
-        
-        {screen !== "splash" && <BottomNav />}
+    <div style={{ position: "relative", width: "100vw", height: "100dvh", background: theme.bg, overflow: "hidden" }}>
+      {/* 스크롤 영역: 가짜 상단바가 사라졌으므로 top: 0 으로 설정하여 화면 끝까지 채움 */}
+      <div className="app-scroll" style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, overflowY: screen === "splash" || screen === "map" ? "hidden" : "auto" }}>
+        <Screen />
       </div>
+      
+      {screen !== "splash" && <BottomNav />}
     </div>
   );
 }
+
 
 /* ---------------------------------------------
    Control panel (outside phone)
@@ -969,11 +959,12 @@ export default function NuzzleApp() {
 
   return (
     <AppCtx.Provider value={{ theme, setTheme, content, setContent, editMode, setEditMode, screen, setScreen, resetAll }}>
-      <div style={{ minHeight: "100vh", background: "#efe6d8", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 20, padding: "32px 12px", fontFamily: FONT_BODY }}>
+      <div style={{ width: "100vw", height: "100dvh", margin: 0, padding: 0, fontFamily: FONT_BODY }}>
         <style>{`
           @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
           @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
           * { box-sizing: border-box; }
+          body { margin: 0; padding: 0; overflow: hidden; background-color: ${theme.bg}; }
           input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
           input[type="color"]::-webkit-color-swatch { border: none; border-radius: 8px; }
           .app-scroll::-webkit-scrollbar { display: none; }
@@ -983,7 +974,7 @@ export default function NuzzleApp() {
           @keyframes pulse { 0% { transform: scale(0.6); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
         `}</style>
         <PhoneShell />
-        <ControlPanel />
+        {/* ControlPanel 삭제 완료 */}
       </div>
     </AppCtx.Provider>
   );
