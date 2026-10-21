@@ -63,26 +63,20 @@ const DEFAULT_CONTENT = {
     { id: 3, img: "https://i.pinimg.com/1200x/bf/1d/e3/bf1de3443a7836b64eaef691fe546789.jpg" },
     { id: 4, img: "https://i.pinimg.com/736x/97/dd/bd/97ddbd79b3fc4e250884917c61d61dd0.jpg" },
     { id: 5, img: "https://i.pinimg.com/736x/28/40/03/2840034b2ea419af4ea183c8eea37e5f.jpg" },
+    { id: 6, img: "https://i.pinimg.com/736x/ac/c0/78/acc078e056812cf937c3f4cf7cabfeaf.jpg" },
+    { id: 7, img: "https://i.pinimg.com/736x/79/6e/95/796e95e981e632f1bb672c357b0b6077.jpg" },
   ],
   feedPosts: [
-    {
-      id: 1,
-      handle: "@do_ber",
-      avatar: "https://i.pinimg.com/736x/4f/89/c9/4f89c91ee8755ceba302bcf8b89e1127.jpg",
-      photo: "https://i.pinimg.com/736x/ff/33/c6/ff33c6ee0fc2bf6496e52380a0ed0b98.jpg",
-      caption: "오늘도 무사히 낮잠 완료 🐾 베르는 오늘도 세상 편안",
-      likes: 128,
-      comments: 12,
-    },
-    {
-      id: 2,
-      handle: "@haru_and_me",
-      avatar: "https://i.pinimg.com/1200x/bf/1d/e3/bf1de3443a7836b64eaef691fe546789.jpg",
-      photo: "https://i.pinimg.com/736x/e3/f4/f5/e3f4f58de2f95c227bd56d133a9aea72.jpg",
-      caption: "퇴근하고 문 열자마자 달려오는 이 표정 못 참지",
-      likes: 241,
-      comments: 34,
-    },
+    { id: 1, handle: "@do_ber", avatar: "https://i.pinimg.com/736x/4f/89/c9/4f89c91ee8755ceba302bcf8b89e1127.jpg", photo: "https://i.pinimg.com/736x/ff/33/c6/ff33c6ee0fc2bf6496e52380a0ed0b98.jpg", caption: "오늘도 무사히 낮잠 완료 🐾 베르는 오늘도 세상 편안", likes: 128, comments: 12, hasLiked: false },
+    { id: 2, handle: "@haru_and_me", avatar: "https://i.pinimg.com/1200x/bf/1d/e3/bf1de3443a7836b64eaef691fe546789.jpg", photo: "https://i.pinimg.com/736x/e3/f4/f5/e3f4f58de2f95c227bd56d133a9aea72.jpg", caption: "퇴근하고 문 열자마자 달려오는 이 표정 못 참지", likes: 241, comments: 34, hasLiked: false },
+    { id: 3, handle: "@meow_life", avatar: "https://i.pinimg.com/736x/59/1b/b5/591bb59e86fe5178c2f22126230cfb0c.jpg", photo: "https://i.pinimg.com/1200x/0b/47/b5/0b47b5b182dc08b11391a1299e3dc71f.jpg", caption: "햇살 좋은 날 창가 자리 쟁탈전 ☀️", likes: 152, comments: 8, hasLiked: false },
+    { id: 4, handle: "@choco_poodle", avatar: "https://i.pinimg.com/736x/28/40/03/2840034b2ea419af4ea183c8eea37e5f.jpg", photo: "https://i.pinimg.com/736x/97/dd/bd/97ddbd79b3fc4e250884917c61d61dd0.jpg", caption: "오늘따라 산책하기 싫다고 버티는 중 ㅋㅋ", likes: 302, comments: 41, hasLiked: false },
+    { id: 5, handle: "@golden_boy", avatar: "https://i.pinimg.com/736x/c6/f0/6c/c6f06c9127c5fb0818b8fa271bba6299.jpg", photo: "https://i.pinimg.com/1200x/d0/e4/dc/d0e4dc68a35ed1e55ea02d3639c01efb.jpg", caption: "새로 산 장난감 5분 만에 파괴완료 🐶", likes: 89, comments: 3, hasLiked: false },
+    { id: 6, handle: "@cheese_tabby", avatar: "https://i.pinimg.com/1200x/35/c0/c0/35c0c07e5befff32632101157f40bcc7.jpg", photo: "https://i.pinimg.com/1200x/8c/0f/5a/8c0f5a06724a0a6e3eef9a9c93918116.jpg", caption: "캔 따는 소리는 기가 막히게 듣고 옴", likes: 421, comments: 55, hasLiked: false },
+    { id: 7, handle: "@run_corgi", avatar: "https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg", photo: "https://i.pinimg.com/736x/72/50/e2/7250e2fbded6241d9a21883c9b1a8e57.jpg", caption: "짧은 다리로 열심히 뛰는 중 🏃‍♂️", likes: 210, comments: 12, hasLiked: false },
+    { id: 8, handle: "@shiba_smile", avatar: "https://i.pinimg.com/1200x/43/2b/99/432b994b640c12376498b74e0776b976.jpg", photo: "https://i.pinimg.com/736x/3b/32/40/3b3240e6d21c815ae3c74a873d2569d4.jpg", caption: "간식 줄 때만 보여주는 자본주의 미소", likes: 512, comments: 88, hasLiked: false },
+    { id: 9, handle: "@black_bean", avatar: "https://i.pinimg.com/1200x/18/d8/8b/18d88ba6b3e6b34f3a0a667a1e3b5ff0.jpg", photo: "https://i.pinimg.com/1200x/32/cc/3d/32cc3d06e1a63e7c5f130bfec6aefcbf.jpg", caption: "박스만 보면 무조건 들어가야 직성이 풀림", likes: 118, comments: 5, hasLiked: false },
+    { id: 10, handle: "@bichon_cloud", avatar: "https://i.pinimg.com/736x/07/0a/4c/070a4c68083579a0f43d427e778d586d.jpg", photo: "https://i.pinimg.com/736x/06/ab/23/06ab23428f95079af047112ce5f772fb.jpg", caption: "미용하고 와서 솜사탕 됐어요 ☁️", likes: 675, comments: 102, hasLiked: false },
   ],
   categories: [
     { id: 1, label: "산책", icon: "Footprints" },
@@ -289,51 +283,55 @@ function SplashScreen() {
 }
 
 /* ---------------------------------------------
-   Feed (홈 화면) - 게시글 및 스토리 작성 상호작용 추가
+   Feed (홈 화면) - 상호작용 및 스토리 뷰어 추가
 --------------------------------------------- */
 function FeedScreen() {
-  const { theme, content, setContent, editMode } = useApp();
+  const { theme, content, setContent, editMode, setScreen } = useApp();
   
-  // 화면 상태: 'feed' (기본) | 'post' (게시글 작성) | 'story' (스토리 작성)
   const [viewState, setViewState] = useState('feed');
-
-  // 새 게시물 상태
   const [newPostPhoto, setNewPostPhoto] = useState("https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg");
   const [newCaption, setNewCaption] = useState("");
-
-  // 새 스토리 상태
   const [newStoryPhoto, setNewStoryPhoto] = useState("https://i.pinimg.com/736x/8e/4d/2c/8e4d2c81d78e77a06cc71fdfcc636440.jpg");
+
+  const [viewingStory, setViewingStory] = useState(null); 
+  const [activeCommentPost, setActiveCommentPost] = useState(null); 
+  const [commentText, setCommentText] = useState("");
 
   const updatePost = (id, patch) => setContent((c) => ({ ...c, feedPosts: c.feedPosts.map((p) => (p.id === id ? { ...p, ...patch } : p)) }));
 
-  // 게시물 업로드
-  const handlePostSubmit = () => {
-    if (!newCaption.trim()) {
-      alert("내용을 입력해 주세요!");
-      return;
-    }
-    const newPost = {
-      id: Date.now(),
-      handle: "@" + (content.petName === "두부" ? "dubu_diary" : "my_pet"), // 임의의 핸들 생성
-      avatar: content.petAvatar,
-      photo: newPostPhoto,
-      caption: newCaption,
-      likes: 0,
-      comments: 0,
-    };
-    setContent((c) => ({ ...c, feedPosts: [newPost, ...c.feedPosts] }));
-    setNewCaption("");
-    setViewState('feed');
+  const toggleLike = (post) => {
+    const isLiked = post.hasLiked;
+    updatePost(post.id, { hasLiked: !isLiked, likes: post.likes + (isLiked ? -1 : 1) });
   };
 
-  // 스토리 업로드
-  const handleStorySubmit = () => {
-    const newStory = {
-      id: Date.now(),
-      img: newStoryPhoto,
+  const handleShare = (post) => {
+    if (navigator.share) {
+      navigator.share({ title: 'nuzzle', text: post.caption, url: post.photo }).catch(()=>{});
+    } else {
+      alert("공유 링크가 클립보드에 복사되었습니다.");
+    }
+  };
+
+  const handleAddComment = () => {
+    if (!commentText.trim()) return;
+    const post = content.feedPosts.find(p => p.id === activeCommentPost);
+    updatePost(activeCommentPost, { comments: post.comments + 1 });
+    setCommentText("");
+    alert("댓글이 등록되었습니다."); 
+  };
+
+  const handlePostSubmit = () => {
+    if (!newCaption.trim()) return alert("내용을 입력해 주세요!");
+    const newPost = {
+      id: Date.now(), handle: "@" + (content.petName === "두부" ? "dubu_diary" : "my_pet"),
+      avatar: content.petAvatar, photo: newPostPhoto, caption: newCaption, likes: 0, comments: 0, hasLiked: false
     };
-    // 새 스토리를 맨 앞에 추가
-    setContent((c) => ({ ...c, stories: [newStory, ...c.stories] }));
+    setContent((c) => ({ ...c, feedPosts: [newPost, ...c.feedPosts] }));
+    setNewCaption(""); setViewState('feed');
+  };
+
+  const handleStorySubmit = () => {
+    setContent((c) => ({ ...c, stories: [{ id: Date.now(), img: newStoryPhoto }, ...c.stories] }));
     setViewState('feed');
   };
 
@@ -341,6 +339,133 @@ function FeedScreen() {
     const url = window.prompt("업로드할 사진의 URL을 붙여넣으세요:", current);
     if (url) setter(url);
   };
+
+  if (viewingStory) {
+    return (
+      <div style={{ position: "fixed", inset: 0, zIndex: 100, background: "#000", display: "flex", flexDirection: "column", animation: "fadeInUp 0.2s ease" }}>
+        <div style={{ padding: "20px", display: "flex", justifyContent: "flex-end", zIndex: 10 }}>
+          <button onClick={() => setViewingStory(null)} style={{ background: "none", border: "none", cursor: "pointer" }}><X size={30} color="#fff" /></button>
+        </div>
+        <img src={viewingStory.img} style={{ width: "100%", flex: 1, objectFit: "contain" }} alt="story" />
+      </div>
+    );
+  }
+
+  if (viewState === 'post') {
+    // 기존 post 작성 코드와 동일
+    return (
+      <div style={{ display: "flex", flexDirection: "column", height: "100%", background: theme.white }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 18px", borderBottom: `1px solid ${theme.bg}` }}>
+          <button onClick={() => setViewState('feed')} style={{ background: "none", border: "none" }}><X size={24} color={theme.main} /></button>
+          <span style={{ fontSize: 15, fontWeight: 700, color: theme.main }}>새 게시물</span>
+          <button onClick={handlePostSubmit} style={{ background: "none", border: "none", fontWeight: 700, color: theme.soft }}>공유</button>
+        </div>
+        <div className="app-scroll" style={{ flex: 1, overflowY: "auto", paddingBottom: 100 }}>
+          <div onClick={() => handlePhotoClick(setNewPostPhoto, newPostPhoto)} style={{ width: "100%", aspectRatio: "1/1.1", background: theme.bg, position: "relative" }}>
+            <img src={newPostPhoto} alt="업로드 이미지" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
+          <div style={{ padding: "16px 18px" }}>
+            <textarea value={newCaption} onChange={(e) => setNewCaption(e.target.value)} placeholder="일상을 공유해보세요..." style={{ width: "100%", minHeight: 120, border: "none", outline: "none", resize: "none", fontSize: 14 }} />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (viewState === 'story') {
+    // 기존 story 작성 코드와 동일
+    return (
+      <div style={{ display: "flex", flexDirection: "column", height: "100%", background: theme.white }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 18px", borderBottom: `1px solid ${theme.bg}` }}>
+          <button onClick={() => setViewState('feed')} style={{ background: "none", border: "none" }}><X size={24} color={theme.main} /></button>
+          <span style={{ fontSize: 15, fontWeight: 700, color: theme.main }}>새 스토리</span>
+          <button onClick={handleStorySubmit} style={{ background: "none", border: "none", fontWeight: 700, color: theme.soft }}>추가</button>
+        </div>
+        <div className="app-scroll" style={{ flex: 1, display: "flex", flexDirection: "column", paddingBottom: 100 }}>
+          <div onClick={() => handlePhotoClick(setNewStoryPhoto, newStoryPhoto)} style={{ margin: "20px 18px", flex: 1, borderRadius: 20, background: theme.bg, position: "relative", overflow: "hidden", minHeight: 400 }}>
+            <img src={newStoryPhoto} alt="스토리 이미지" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ paddingBottom: 92 }}>
+      {/* Header */}
+      <div style={{ background: theme.white, display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", padding: "10px 15px 4px" }}>
+        <button onClick={() => setViewState('post')} style={{ justifySelf: "start", border: "none", background: "none", cursor: "pointer", padding: 3 }}>
+          <Plus size={30} color={theme.main} />
+        </button>
+        <Logo size={18} center />
+        {/* 설정 화면으로 이동하도록 수정 */}
+        <button onClick={() => setScreen('settings')} style={{ justifySelf: "end", border: "none", background: "none", cursor: "pointer", padding: 7 }}>
+          <Settings size={28} color={theme.main} />
+        </button>
+      </div>
+
+      {/* Stories */}
+      <div className="app-scroll" style={{ position: "sticky", top: -1, zIndex: 20, background: theme.white, padding: "10px 18px 16px", display: "flex", gap: 14, overflowX: "auto" }}>
+        <button onClick={() => setViewState('story')} style={{ width: 50, height: 50, borderRadius: "50%", flexShrink: 0, border: `1.5px dashed ${theme.sub}`, background: theme.white, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+          <Plus size={18} color={theme.sub} />
+        </button>
+        {content.stories.map((s) => (
+          <div key={s.id} onClick={() => !editMode && setViewingStory(s)} style={{ flexShrink: 0, cursor: editMode ? "default" : "pointer", borderRadius: "50%", border: `2.5px solid ${theme.soft}`, padding: 2 }}>
+            <EditImage src={s.img} editMode={editMode} onChange={(url) => setContent((c) => ({ ...c, stories: c.stories.map((st) => (st.id === s.id ? { ...st, img: url } : st)) }))} style={{ width: 42, height: 42, borderRadius: "50%" }} />
+          </div>
+        ))}
+      </div>
+
+      {/* Feed Posts */}
+      <div style={{ display: "flex", flexDirection: "column", gap: 16, padding: "16px 0" }}>
+        {content.feedPosts.map((p) => (
+          <div key={p.id} style={{ background: theme.white, overflow: "hidden" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 9, padding: "16px 18px 12px" }}>
+              <EditImage src={p.avatar} editMode={editMode} onChange={(url) => updatePost(p.id, { avatar: url })} style={{ width: 34, height: 34, borderRadius: "50%" }} />
+              <EditText value={p.handle} editMode={editMode} onChange={(v) => updatePost(p.id, { handle: v })} style={{ fontSize: 13.5, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }} />
+              <MoreHorizontal size={17} color={theme.sub} style={{ marginLeft: "auto" }} />
+            </div>
+            
+            <EditImage src={p.photo} editMode={editMode} onChange={(url) => updatePost(p.id, { photo: url })} style={{ width: "100%", aspectRatio: "1 / 1.1" }} />
+            
+            <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "12px 18px 6px" }}>
+              {/* 상호작용 반영 */}
+              <span style={{ display: "flex", alignItems: "center", gap: 4, cursor: "pointer" }} onClick={() => toggleLike(p)}>
+                <Heart size={21} fill={p.hasLiked ? theme.soft : "none"} color={p.hasLiked ? theme.soft : theme.sub} strokeWidth={2} />
+                <span style={{ fontSize: 13, color: theme.main, fontWeight: 500 }}>{p.likes}</span>
+              </span>
+              <span style={{ display: "flex", alignItems: "center", gap: 4, cursor: "pointer" }} onClick={() => setActiveCommentPost(p.id)}>
+                <MessageCircle size={21} color={theme.sub} strokeWidth={2} />
+                <span style={{ fontSize: 13, color: theme.main, fontWeight: 500 }}>{p.comments}</span>
+              </span>
+              <Share2 size={19} color={theme.sub} strokeWidth={2} cursor="pointer" onClick={() => handleShare(p)} />
+            </div>
+            
+            <div style={{ padding: "6px 18px 18px" }}>
+              <EditText value={p.caption} editMode={editMode} onChange={(v) => updatePost(p.id, { caption: v })} style={{ fontSize: 13, color: theme.main, fontFamily: FONT_BODY, lineHeight: 1.6 }} />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* 댓글 모달 */}
+      {activeCommentPost && (
+        <div style={{ position: "fixed", inset: 0, zIndex: 50, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)" }} onClick={() => setActiveCommentPost(null)} />
+          <div style={{ background: theme.white, borderRadius: "24px 24px 0 0", padding: "20px", position: "relative", zIndex: 51, animation: "fadeInUp 0.3s ease" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
+              <span style={{ fontWeight: 700, fontFamily: FONT_BODY, color: theme.main }}>댓글 달기</span>
+              <button onClick={() => setActiveCommentPost(null)} style={{ border: "none", background: "none", cursor: "pointer" }}><X size={20} color={theme.main}/></button>
+            </div>
+            <div style={{ display: "flex", gap: 10 }}>
+              <input type="text" value={commentText} onChange={e => setCommentText(e.target.value)} placeholder="댓글을 입력하세요..." style={{ flex: 1, padding: "12px 16px", borderRadius: 999, border: `1px solid ${theme.bg}`, outline: "none", fontFamily: FONT_BODY, fontSize: 14 }} />
+              <button onClick={handleAddComment} style={{ background: theme.main, color: theme.white, border: "none", padding: "0 20px", borderRadius: 999, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer" }}>등록</button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 
   /* ==========================================
      1. 게시글 작성 화면 (Post View)
@@ -885,7 +1010,37 @@ function BottomNav() {
   );
 }
 
-const SCREENS = { splash: SplashScreen, feed: FeedScreen, profile: ProfileScreen, category: CategoryScreen, map: MapScreen };
+
+/* ---------------------------------------------
+   Settings Screen (설정 화면)
+--------------------------------------------- */
+function SettingsScreen() {
+  const { theme, setScreen } = useApp();
+  return (
+    <div style={{ height: "100%", background: theme.bg, display: "flex", flexDirection: "column", animation: "fadeInUp 0.3s ease" }}>
+      <div style={{ background: theme.white, padding: "16px 18px", display: "flex", alignItems: "center", position: "sticky", top: 0, zIndex: 10, boxShadow: "0 2px 8px rgba(0,0,0,0.02)" }}>
+        <button onClick={() => setScreen("feed")} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "flex" }}>
+          <ChevronLeft size={28} color={theme.main} />
+        </button>
+        <span style={{ flex: 1, textAlign: "center", fontSize: 16, fontWeight: 700, color: theme.main, marginRight: 28, fontFamily: FONT_BODY }}>설정</span>
+      </div>
+      <div className="app-scroll" style={{ flex: 1, padding: "20px 18px" }}>
+        {['프로필 편집', '계정 공개 범위', '알림 설정', '개인정보 처리방침', '버전 정보 v1.0.0', '로그아웃'].map((item, i) => (
+          <div 
+            key={i} 
+            onClick={() => { if(item === '로그아웃') alert('로그아웃 되었습니다.'); }}
+            style={{ padding: "18px 4px", borderBottom: `1px solid ${theme.soft}40`, fontSize: 15, color: item === '로그아웃' ? '#e74c3c' : theme.main, fontFamily: FONT_BODY, fontWeight: 500, cursor: "pointer" }}
+          >
+            {item}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const SCREENS = { splash: SplashScreen, feed: FeedScreen, profile: ProfileScreen, category: CategoryScreen, map: MapScreen, settings: SettingsScreen };
+
 
 function PhoneShell() {
   const { theme, screen } = useApp();
@@ -901,6 +1056,7 @@ function PhoneShell() {
     </div>
   );
 }
+
 
 
 /* ---------------------------------------------
