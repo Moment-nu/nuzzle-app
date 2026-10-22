@@ -143,34 +143,69 @@ const DEFAULT_CONTENT = {
     { id: 11, name: "서울마리나 펫스토랑", tag: "펫카페", top: "32%", left: "60%" },
     { id: 12, name: "멍멍당 당산점", tag: "펫카페", top: "30%", left: "35%" },
   ],
-  albumMonths: ["Jan.", "Feb.", "Mar.", "Apr.", "May."],
-  albumPhotos: [
-    "https://i.pinimg.com/736x/c6/f0/6c/c6f06c9127c5fb0818b8fa271bba6299.jpg",
-    "https://i.pinimg.com/1200x/d0/e4/dc/d0e4dc68a35ed1e55ea02d3639c01efb.jpg",
-    "https://i.pinimg.com/1200x/35/c0/c0/35c0c07e5befff32632101157f40bcc7.jpg",
-    "https://i.pinimg.com/1200x/8c/0f/5a/8c0f5a06724a0a6e3eef9a9c93918116.jpg",
-    "https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg",
-    "https://i.pinimg.com/736x/72/50/e2/7250e2fbded6241d9a21883c9b1a8e57.jpg",
-    "https://i.pinimg.com/1200x/43/2b/99/432b994b640c12376498b74e0776b976.jpg",
-    "https://i.pinimg.com/736x/3b/32/40/3b3240e6d21c815ae3c74a873d2569d4.jpg",
-    "https://i.pinimg.com/1200x/18/d8/8b/18d88ba6b3e6b34f3a0a667a1e3b5ff0.jpg",
-    "https://i.pinimg.com/1200x/32/cc/3d/32cc3d06e1a63e7c5f130bfec6aefcbf.jpg",
-    "https://i.pinimg.com/736x/07/0a/4c/070a4c68083579a0f43d427e778d586d.jpg",
-    "https://i.pinimg.com/736x/06/ab/23/06ab23428f95079af047112ce5f772fb.jpg",
-    "https://i.pinimg.com/1200x/58/30/83/583083d769d1d562e4aa13dd3485bf4c.jpg",
-    "https://i.pinimg.com/1200x/8b/03/02/8b0302799df5d6df418cd79e60fe9da7.jpg",
-    "https://i.pinimg.com/1200x/3c/7a/37/3c7a37ba937842bb187d0512170c2a45.jpg",
-    "https://i.pinimg.com/736x/a6/c1/ee/a6c1ee56238b5b592f7cebacb6fa3164.jpg",
-    "https://i.pinimg.com/736x/8e/4d/2c/8e4d2c81d78e77a06cc71fdfcc636440.jpg",
-    "https://i.pinimg.com/736x/68/6c/24/686c24487159c9626e1ad92ffa231c25.jpg",
-  ],
-  timelinePhotos: [
-    { month: "May.", img: "https://picsum.photos/seed/nuzzle-tl-5/600/260" },
-    { month: "Apr.", img: "https://picsum.photos/seed/nuzzle-tl-4/600/260" },
-    { month: "Mar.", img: "https://picsum.photos/seed/nuzzle-tl-3/600/260" },
-    { month: "Feb.", img: "https://picsum.photos/seed/nuzzle-tl-2/600/260" },
-    { month: "Jan.", img: "https://picsum.photos/seed/nuzzle-tl-1/600/260" },
-  ],
+  // 이 부분부터 DEFAULT_CONTENT 끝(})까지 교체
+  petAlbums: [
+    {
+      month: "May",
+      cover: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80",
+      photos: [
+        "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&q=80",
+        "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=400&q=80",
+        "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=400&q=80",
+        "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=400&q=80",
+        "https://images.unsplash.com/photo-1529778456725-dbea72ce3c53?w=400&q=80",
+        "https://images.unsplash.com/photo-1501820488136-72669149e0d4?w=400&q=80"
+      ]
+    },
+    {
+      month: "Apr",
+      cover: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=600&q=80",
+      photos: [
+        "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=400&q=80",
+        "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=400&q=80",
+        "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=400&q=80",
+        "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&q=80",
+        "https://images.unsplash.com/photo-1583083527882-4bee9aba2eea?w=400&q=80",
+        "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=400&q=80"
+      ]
+    },
+    {
+      month: "Mar",
+      cover: "https://images.unsplash.com/photo-1561948955-570b270e7c36?w=600&q=80",
+      photos: [
+        "https://images.unsplash.com/photo-1561948955-570b270e7c36?w=400&q=80",
+        "https://images.unsplash.com/photo-1615397323282-311029c2f6d5?w=400&q=80",
+        "https://images.unsplash.com/photo-1568152950566-c1bf43f4ab28?w=400&q=80",
+        "https://images.unsplash.com/photo-1555685812-4b743e8362e0?w=400&q=80",
+        "https://images.unsplash.com/photo-1606214174585-fd3158ddf451?w=400&q=80",
+        "https://images.unsplash.com/photo-1511044568932-338cba0ad803?w=400&q=80"
+      ]
+    },
+    {
+      month: "Feb",
+      cover: "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=600&q=80",
+      photos: [
+        "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=400&q=80",
+        "https://images.unsplash.com/photo-1588666324227-2cdbc983fc5e?w=400&q=80",
+        "https://images.unsplash.com/photo-1577023311546-cdc07a8454d9?w=400&q=80",
+        "https://images.unsplash.com/photo-1602498456745-e9503b30470b?w=400&q=80",
+        "https://images.unsplash.com/photo-1627764104273-0ff7e25fb842?w=400&q=80",
+        "https://images.unsplash.com/photo-1504826260979-242151ce5d24?w=400&q=80"
+      ]
+    },
+    {
+      month: "Jan",
+      cover: "https://images.unsplash.com/photo-1548247416-ec66f4900b2e?w=600&q=80",
+      photos: [
+        "https://images.unsplash.com/photo-1548247416-ec66f4900b2e?w=400&q=80",
+        "https://images.unsplash.com/photo-1526678229711-2b0e6ebfbc24?w=400&q=80",
+        "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=400&q=80",
+        "https://images.unsplash.com/photo-1513245543132-31f507417b26?w=400&q=80",
+        "https://images.unsplash.com/photo-1494256997604-768d1f608cac?w=400&q=80",
+        "https://images.unsplash.com/photo-1506506301384-5fca58f000b1?w=400&q=80"
+      ]
+    }
+  ]
 };
 
 /* ---------------------------------------------
