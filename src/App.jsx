@@ -21,7 +21,7 @@ const DEFAULT_THEME = {
 const ICONS = { Footprints, Stethoscope, Scissors, Cookie, Dumbbell, ShoppingBag, PawPrint };
 
 /* ---------------------------------------------
-   Default content (데이터 통합 및 확장)
+   Default content (검색탭 카테고리 수정 및 데이터 24개 확장)
 --------------------------------------------- */
 const DEFAULT_CONTENT = {
   tagline: "일상 속 친근한 연결",
@@ -45,22 +45,41 @@ const DEFAULT_CONTENT = {
     { id: 6, handle: "@cheese_tabby", avatar: "https://i.pinimg.com/1200x/35/c0/c0/35c0c07e5befff32632101157f40bcc7.jpg", photo: "https://i.pinimg.com/1200x/8c/0f/5a/8c0f5a06724a0a6e3eef9a9c93918116.jpg", caption: "캔 따는 소리는 기가 막히게 듣고 옴", likes: 421, comments: 55, hasLiked: false },
     { id: 7, handle: "@run_corgi", avatar: "https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg", photo: "https://i.pinimg.com/736x/72/50/e2/7250e2fbded6241d9a21883c9b1a8e57.jpg", caption: "짧은 다리로 열심히 뛰는 중 🏃‍♂️", likes: 210, comments: 12, hasLiked: false },
     { id: 8, handle: "@shiba_smile", avatar: "https://i.pinimg.com/1200x/43/2b/99/432b994b640c12376498b74e0776b976.jpg", photo: "https://i.pinimg.com/736x/3b/32/40/3b3240e6d21c815ae3c74a873d2569d4.jpg", caption: "간식 줄 때만 보여주는 자본주의 미소", likes: 512, comments: 88, hasLiked: false },
-    { id: 9, handle: "@black_bean", avatar: "https://i.pinimg.com/1200x/18/d8/8b/18d88ba6b3e6b34f3a0a667a1e3b5ff0.jpg", photo: "https://i.pinimg.com/1200x/32/cc/3d/32cc3d06e1a63e7c5f130bfec6aefcbf.jpg", caption: "박스만 보면 무조건 들어가야 직성이 풀림", likes: 118, comments: 5, hasLiked: false },
-    { id: 10, handle: "@bichon_cloud", avatar: "https://i.pinimg.com/736x/07/0a/4c/070a4c68083579a0f43d427e778d586d.jpg", photo: "https://i.pinimg.com/736x/06/ab/23/06ab23428f95079af047112ce5f772fb.jpg", caption: "미용하고 와서 솜사탕 됐어요 ☁️", likes: 675, comments: 102, hasLiked: false },
   ],
   categories: [
     { id: 1, label: "산책", icon: "Footprints" },
     { id: 2, label: "병원", icon: "Stethoscope" },
-    { id: 3, label: "미용", icon: "Scissors" },
-    { id: 4, label: "간식", icon: "Cookie" },
-    { id: 5, label: "훈련", icon: "Dumbbell" },
-    { id: 6, label: "용품", icon: "ShoppingBag" },
+    { id: 3, label: "간식", icon: "Cookie" },
+    { id: 4, label: "용품", icon: "ShoppingBag" },
   ],
   communityPosts: [
-    { id: 1, category: "병원", avatar: "https://i.pinimg.com/736x/ac/c0/78/acc078e056812cf937c3f4cf7cabfeaf.jpg", nickname: "nuzzle_w", photo: "https://i.pinimg.com/1200x/3b/0c/f7/3b0cf77b32f13d0804d98599c0773c57.jpg", caption: "고양이 중성화 수술 후 회복 기간 얼마나 걸렸는지 여쭤봐도 될까요?", likes: 24, comments: 9 },
-    { id: 2, category: "산책", avatar: "https://i.pinimg.com/736x/79/6e/95/796e95e981e632f1bb672c357b0b6077.jpg", nickname: "dubu_nu", photo: "https://i.pinimg.com/1200x/ef/76/32/ef76324894d4e20a97717f2d57926417.jpg", caption: "장마철 산책 대체 어떻게들 하세요? 실내 활동 추천 부탁드려요", likes: 41, comments: 17 },
-    { id: 3, category: "간식", avatar: "https://i.pinimg.com/736x/59/1b/b5/591bb59e86fe5178c2f22126230cfb0c.jpg", nickname: "boder_col", photo: "https://i.pinimg.com/1200x/0b/47/b5/0b47b5b182dc08b11391a1299e3dc71f.jpg", caption: "수제 간식 처음 만들어봤는데 애가 안 먹네요... 레시피 추천 있으신 분?", likes: 15, comments: 5 },
-    { id: 4, category: "미용", avatar: "https://i.pinimg.com/736x/28/40/03/2840034b2ea419af4ea183c8eea37e5f.jpg", nickname: "grooming_master", photo: "https://i.pinimg.com/736x/97/dd/bd/97ddbd79b3fc4e250884917c61d61dd0.jpg", caption: "여름맞이 곰돌이컷 완료! 너무 귀엽지 않나요? 🐻", likes: 56, comments: 12 }
+    { id: 101, category: "산책", avatar: "https://i.pinimg.com/736x/79/6e/95/796e95e981e632f1bb672c357b0b6077.jpg", nickname: "dubu_nu", photo: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80", caption: "장마철 산책 대체 어떻게들 하세요? 실내 활동 추천 부탁드려요. 비오니까 애가 너무 우울해하네요 ㅠㅠ", likes: 41, comments: 17, hasLiked: false },
+    { id: 102, category: "산책", avatar: "https://i.pinimg.com/736x/97/dd/bd/97ddbd79b3fc4e250884917c61d61dd0.jpg", nickname: "choco_poodle", photo: "https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&q=80", caption: "한강공원 강아지 놀이터 다녀왔어요! 새로 사귄 친구들이랑 엄청 뛰어놀았습니다.", likes: 120, comments: 24, hasLiked: false },
+    { id: 103, category: "산책", avatar: "https://i.pinimg.com/736x/4f/89/c9/4f89c91ee8755ceba302bcf8b89e1127.jpg", nickname: "do_ber", photo: "https://images.unsplash.com/photo-1522276498395-f4f68f7f8454?w=600&q=80", caption: "여름엔 역시 야간 산책이죠. 선선해서 걷기 딱 좋네요.", likes: 88, comments: 12, hasLiked: false },
+    { id: 104, category: "산책", avatar: "https://i.pinimg.com/1200x/bf/1d/e3/bf1de3443a7836b64eaef691fe546789.jpg", nickname: "haru_and_me", photo: "https://images.unsplash.com/photo-1537151608804-ea6f1184aca9?w=600&q=80", caption: "산책하다가 만난 길고양이한테 시선 뺏긴 하루 ㅋㅋ", likes: 215, comments: 31, hasLiked: false },
+    { id: 105, category: "산책", avatar: "https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg", nickname: "run_corgi", photo: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&q=80", caption: "새로 산 하네스 개시! 색깔 완전 찰떡이지 않나요?", likes: 142, comments: 18, hasLiked: false },
+    { id: 106, category: "산책", avatar: "https://i.pinimg.com/1200x/43/2b/99/432b994b640c12376498b74e0776b976.jpg", nickname: "shiba_smile", photo: "https://images.unsplash.com/photo-1544568100-847a948585b9?w=600&q=80", caption: "안 간다고 버티기 시전 중... 10분째 대치 상태입니다.", likes: 350, comments: 55, hasLiked: false },
+    
+    { id: 201, category: "병원", avatar: "https://i.pinimg.com/736x/ac/c0/78/acc078e056812cf937c3f4cf7cabfeaf.jpg", nickname: "nuzzle_w", photo: "https://images.unsplash.com/photo-1584815682414-7cf6b142eb3c?w=600&q=80", caption: "고양이 중성화 수술 후 회복 기간 얼마나 걸렸는지 여쭤봐도 될까요? 넥카라를 너무 불편해해서 걱정입니다.", likes: 24, comments: 9, hasLiked: false },
+    { id: 202, category: "병원", avatar: "https://i.pinimg.com/736x/c6/f0/6c/c6f06c9127c5fb0818b8fa271bba6299.jpg", nickname: "golden_boy", photo: "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=600&q=80", caption: "심장사상충 약 먹이는 꿀팁 공유합니다. 간식 사이에 숨겨서 주는 게 최고네요.", likes: 110, comments: 22, hasLiked: false },
+    { id: 203, category: "병원", avatar: "https://i.pinimg.com/1200x/35/c0/c0/35c0c07e5befff32632101157f40bcc7.jpg", nickname: "cheese_tabby", photo: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80", caption: "종합백신 맞으러 왔는데 긴장해서 숨어있는 중 ㅠㅠ", likes: 85, comments: 14, hasLiked: false },
+    { id: 204, category: "병원", avatar: "https://i.pinimg.com/1200x/18/d8/8b/18d88ba6b3e6b34f3a0a667a1e3b5ff0.jpg", nickname: "black_bean", photo: "https://images.unsplash.com/photo-1599839619722-39751411ea63?w=600&q=80", caption: "건강검진 결과 다행히 아주 건강하대요! 다이어트만 조금 하라고 하시네요 ㅎㅎ", likes: 230, comments: 40, hasLiked: false },
+    { id: 205, category: "병원", avatar: "https://i.pinimg.com/736x/07/0a/4c/070a4c68083579a0f43d427e778d586d.jpg", nickname: "bichon_cloud", photo: "https://images.unsplash.com/photo-1554692928-dfa2c262d512?w=600&q=80", caption: "슬개골 탈구 의심돼서 엑스레이 찍고 왔어요. 아직 1기라 관리만 잘해주면 된대요.", likes: 95, comments: 16, hasLiked: false },
+    { id: 206, category: "병원", avatar: "https://i.pinimg.com/736x/59/1b/b5/591bb59e86fe5178c2f22126230cfb0c.jpg", nickname: "meow_life", photo: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80", caption: "동물병원 고양이 친화 진료실 너무 좋네요. 대기실부터 분리되어 있어서 안심입니다.", likes: 160, comments: 25, hasLiked: false },
+
+    { id: 301, category: "간식", avatar: "https://i.pinimg.com/736x/59/1b/b5/591bb59e86fe5178c2f22126230cfb0c.jpg", nickname: "boder_col", photo: "https://images.unsplash.com/photo-1582562124811-c09040d0a907?w=600&q=80", caption: "수제 간식 처음 만들어봤는데 애가 안 먹네요... 닭가슴살 져키 레시피 꿀팁 있으신 분?", likes: 15, comments: 5, hasLiked: false },
+    { id: 302, category: "간식", avatar: "https://i.pinimg.com/736x/97/dd/bd/97ddbd79b3fc4e250884917c61d61dd0.jpg", nickname: "choco_poodle", photo: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&q=80", caption: "요즘 유행하는 동결건조 간식 사봤는데 기호성 대박이에요!", likes: 145, comments: 22, hasLiked: false },
+    { id: 303, category: "간식", avatar: "https://i.pinimg.com/736x/4f/89/c9/4f89c91ee8755ceba302bcf8b89e1127.jpg", nickname: "do_ber", photo: "https://images.unsplash.com/photo-1522276498395-f4f68f7f8454?w=600&q=80", caption: "더운 여름엔 펫밀크 얼려서 주는 게 최고죠. 아이스크림처럼 핥아먹어요.", likes: 210, comments: 33, hasLiked: false },
+    { id: 304, category: "간식", avatar: "https://i.pinimg.com/1200x/bf/1d/e3/bf1de3443a7836b64eaef691fe546789.jpg", nickname: "haru_and_me", photo: "https://images.unsplash.com/photo-1537151608804-ea6f1184aca9?w=600&q=80", caption: "츄르 봉지만 바스락거려도 자다가 튀어나오는 매직", likes: 380, comments: 45, hasLiked: false },
+    { id: 305, category: "간식", avatar: "https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg", nickname: "run_corgi", photo: "https://images.unsplash.com/photo-1544568100-847a948585b9?w=600&q=80", caption: "강아지 전용 멍푸치노 먹방 ☕️ 입가에 거품 묻은 거 너무 귀여워요.", likes: 195, comments: 28, hasLiked: false },
+    { id: 306, category: "간식", avatar: "https://i.pinimg.com/1200x/43/2b/99/432b994b640c12376498b74e0776b976.jpg", nickname: "shiba_smile", photo: "https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&q=80", caption: "다이어트 중이라 양배추 간식으로 대체했는데 생각보다 잘 먹네요?", likes: 75, comments: 10, hasLiked: false },
+
+    { id: 401, category: "용품", avatar: "https://i.pinimg.com/1200x/18/d8/8b/18d88ba6b3e6b34f3a0a667a1e3b5ff0.jpg", nickname: "black_bean", photo: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=600&q=80", caption: "새로 산 캣타워 조립 완료! 다행히 박스보다 캣타워를 더 좋아해주네요.", likes: 250, comments: 38, hasLiked: false },
+    { id: 402, category: "용품", avatar: "https://i.pinimg.com/736x/07/0a/4c/070a4c68083579a0f43d427e778d586d.jpg", nickname: "bichon_cloud", photo: "https://images.unsplash.com/photo-1554692928-dfa2c262d512?w=600&q=80", caption: "노즈워크 장난감 샀는데 5분 컷 당했습니다... 난이도 높은 거 추천 좀 해주세요.", likes: 62, comments: 15, hasLiked: false },
+    { id: 403, category: "용품", avatar: "https://i.pinimg.com/736x/ac/c0/78/acc078e056812cf937c3f4cf7cabfeaf.jpg", nickname: "nuzzle_w", photo: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80", caption: "자동 급식기 쓰시는 분들 어떤 브랜드 쓰시나요? 와이파이 연결 잘 되는 걸로 찾고 있어요.", likes: 45, comments: 19, hasLiked: false },
+    { id: 404, category: "용품", avatar: "https://i.pinimg.com/736x/c6/f0/6c/c6f06c9127c5fb0818b8fa271bba6299.jpg", nickname: "golden_boy", photo: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&q=80", caption: "강아지 카시트 바꿨는데 엄청 안정감 있네요. 드라이브 갈 맛 납니다.", likes: 180, comments: 26, hasLiked: false },
+    { id: 405, category: "용품", avatar: "https://i.pinimg.com/1200x/35/c0/c0/35c0c07e5befff32632101157f40bcc7.jpg", nickname: "cheese_tabby", photo: "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=600&q=80", caption: "먼지 없는 모래 찾다가 정착한 제품! 사막화도 덜하고 만족스럽습니다.", likes: 310, comments: 51, hasLiked: false },
+    { id: 406, category: "용품", avatar: "https://i.pinimg.com/736x/59/1b/b5/591bb59e86fe5178c2f22126230cfb0c.jpg", nickname: "meow_life", photo: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=600&q=80", caption: "여름맞이 쿨매트 깔아줬더니 하루 종일 저기서만 자네요 ㅋㅋㅋ", likes: 135, comments: 17, hasLiked: false },
   ],
   spotCategories: ["산책로", "동물병원", "펫카페", "동반식당", "미용실"],
   spots: [
@@ -73,9 +92,6 @@ const DEFAULT_CONTENT = {
     { id: 7, name: "러블리퍼피 당산", tag: "미용실", top: "40%", left: "36%" },
     { id: 8, name: "24시 수동물의료센터", tag: "동물병원", top: "76%", left: "53%" },
     { id: 9, name: "IFC몰 (애견동반)", tag: "산책로", top: "40%", left: "73%" },
-    { id: 10, name: "더현대 서울", tag: "동반식당", top: "38%", left: "77%" },
-    { id: 11, name: "서울마리나 펫스토랑", tag: "펫카페", top: "32%", left: "60%" },
-    { id: 12, name: "멍멍당 당산점", tag: "펫카페", top: "30%", left: "35%" },
   ],
   petAlbums: [
     {
@@ -124,18 +140,6 @@ const DEFAULT_CONTENT = {
         "https://images.unsplash.com/photo-1602498456745-e9503b30470b?w=400&q=80",
         "https://images.unsplash.com/photo-1627764104273-0ff7e25fb842?w=400&q=80",
         "https://images.unsplash.com/photo-1504826260979-242151ce5d24?w=400&q=80"
-      ]
-    },
-    {
-      month: "Jan.",
-      cover: "https://images.unsplash.com/photo-1548247416-ec66f4900b2e?w=600&q=80",
-      photos: [
-        "https://images.unsplash.com/photo-1548247416-ec66f4900b2e?w=400&q=80",
-        "https://images.unsplash.com/photo-1526678229711-2b0e6ebfbc24?w=400&q=80",
-        "https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?w=400&q=80",
-        "https://images.unsplash.com/photo-1513245543132-31f507417b26?w=400&q=80",
-        "https://images.unsplash.com/photo-1494256997604-768d1f608cac?w=400&q=80",
-        "https://images.unsplash.com/photo-1506506301384-5fca58f000b1?w=400&q=80"
       ]
     }
   ]
@@ -406,14 +410,38 @@ function CategoryScreen() {
   const { theme, content, setContent, editMode } = useApp();
   const [activeCat, setActiveCat] = useState('all');
   const [isWriting, setIsWriting] = useState(false);
+  const [detailPost, setDetailPost] = useState(null);
+  
   const [newPhoto, setNewPhoto] = useState("https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg");
   const [newCatLabel, setNewCatLabel] = useState(content.categories[0]?.label || "산책");
   const [newCaption, setNewCaption] = useState("");
+  
+  const [commentText, setCommentText] = useState("");
+  const [activeCommentPost, setActiveCommentPost] = useState(null);
 
   const updateCat = (id, label) => setContent((c) => ({ ...c, categories: c.categories.map((cat) => (cat.id === id ? { ...cat, label } : cat)) }));
   const removeCat = (id) => setContent((c) => ({ ...c, categories: c.categories.filter((cat) => cat.id !== id) }));
-  const addCat = () => setContent((c) => ({ ...c, categories: [...c.categories, { id: Date.now(), label: "새 태그", icon: "PawPrint" }] }));
+  
   const updatePost = (id, patch) => setContent((c) => ({ ...c, communityPosts: c.communityPosts.map((p) => (p.id === id ? { ...p, ...patch } : p)) }));
+  
+  const toggleLike = (post) => {
+    const isLiked = post.hasLiked;
+    updatePost(post.id, { hasLiked: !isLiked, likes: post.likes + (isLiked ? -1 : 1) });
+    if(detailPost && detailPost.id === post.id) setDetailPost({...detailPost, hasLiked: !isLiked, likes: detailPost.likes + (isLiked ? -1 : 1)});
+  };
+
+  const handleShare = (post) => {
+    if (navigator.share) navigator.share({ title: 'nuzzle', text: post.caption, url: post.photo }).catch(()=>{});
+    else alert("공유 링크가 클립보드에 복사되었습니다.");
+  };
+
+  const handleAddComment = () => {
+    if (!commentText.trim()) return;
+    const post = content.communityPosts.find(p => p.id === activeCommentPost);
+    updatePost(activeCommentPost, { comments: post.comments + 1 });
+    if(detailPost && detailPost.id === activeCommentPost) setDetailPost({...detailPost, comments: detailPost.comments + 1});
+    setCommentText(""); alert("댓글이 등록되었습니다."); 
+  };
 
   const displayCategories = [{ id: 'all', label: 'ALL', icon: 'LayoutGrid' }, ...content.categories];
   const filteredPosts = content.communityPosts.filter((p) => {
@@ -424,7 +452,7 @@ function CategoryScreen() {
 
   const handlePostSubmit = () => {
     if (!newCaption.trim()) return alert("내용을 입력해 주세요!");
-    const newPost = { id: Date.now(), category: newCatLabel, avatar: content.petAvatar, nickname: content.petName, photo: newPhoto, caption: newCaption, likes: 0, comments: 0 };
+    const newPost = { id: Date.now(), category: newCatLabel, avatar: content.petAvatar, nickname: content.petName, photo: newPhoto, caption: newCaption, likes: 0, comments: 0, hasLiked: false };
     setContent((c) => ({ ...c, communityPosts: [newPost, ...c.communityPosts] }));
     setNewCaption(""); setIsWriting(false); setActiveCat('all');
   };
@@ -458,6 +486,55 @@ function CategoryScreen() {
     );
   }
 
+  if (detailPost) {
+    return (
+      <div style={{ display: "flex", flexDirection: "column", height: "100%", background: theme.white, animation: "fadeInUp 0.2s ease" }}>
+        <div style={{ display: "flex", alignItems: "center", padding: "16px 18px", borderBottom: `1px solid ${theme.bg}`, position: "sticky", top: 0, background: theme.white, zIndex: 10 }}>
+          <button onClick={() => setDetailPost(null)} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "flex" }}>
+            <ChevronLeft size={28} color={theme.main} />
+          </button>
+          <span style={{ flex: 1, textAlign: "center", fontSize: 16, fontWeight: 700, color: theme.main, marginRight: 28, fontFamily: FONT_BODY }}>게시물</span>
+        </div>
+        <div className="app-scroll" style={{ flex: 1, overflowY: "auto", paddingBottom: 100 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "16px 18px 12px" }}>
+            <EditImage src={detailPost.avatar} editMode={editMode} onChange={(url) => updatePost(detailPost.id, { avatar: url })} style={{ width: 34, height: 34, borderRadius: "50%" }} />
+            <EditText value={detailPost.nickname} editMode={editMode} onChange={(v) => updatePost(detailPost.id, { nickname: v })} style={{ fontSize: 13.5, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }} />
+          </div>
+          <EditImage src={detailPost.photo} editMode={editMode} onChange={(url) => updatePost(detailPost.id, { photo: url })} style={{ width: "100%", aspectRatio: "1/1.1" }} />
+          <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "12px 18px 6px" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: 4, cursor: "pointer" }} onClick={() => toggleLike(detailPost)}>
+              <Heart size={21} fill={detailPost.hasLiked ? theme.soft : "none"} color={detailPost.hasLiked ? theme.soft : theme.sub} strokeWidth={2} />
+              <span style={{ fontSize: 13, color: theme.main, fontWeight: 500 }}>{detailPost.likes}</span>
+            </span>
+            <span style={{ display: "flex", alignItems: "center", gap: 4, cursor: "pointer" }} onClick={() => setActiveCommentPost(detailPost.id)}>
+              <MessageCircle size={21} color={theme.sub} strokeWidth={2} />
+              <span style={{ fontSize: 13, color: theme.main, fontWeight: 500 }}>{detailPost.comments}</span>
+            </span>
+            <Share2 size={19} color={theme.sub} strokeWidth={2} cursor="pointer" onClick={() => handleShare(detailPost)} />
+          </div>
+          <div style={{ padding: "6px 18px 24px" }}>
+            <EditText value={detailPost.caption} editMode={editMode} onChange={(v) => updatePost(detailPost.id, { caption: v })} style={{ fontSize: 14, color: theme.main, fontFamily: FONT_BODY, lineHeight: 1.6 }} />
+          </div>
+        </div>
+        {activeCommentPost && (
+          <div style={{ position: "fixed", inset: 0, zIndex: 50, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+            <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)" }} onClick={() => setActiveCommentPost(null)} />
+            <div style={{ background: theme.white, borderRadius: "24px 24px 0 0", padding: "20px", position: "relative", zIndex: 51, animation: "fadeInUp 0.3s ease" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
+                <span style={{ fontWeight: 700, fontFamily: FONT_BODY, color: theme.main }}>댓글 달기</span>
+                <button onClick={() => setActiveCommentPost(null)} style={{ border: "none", background: "none", cursor: "pointer" }}><X size={20} color={theme.main}/></button>
+              </div>
+              <div style={{ display: "flex", gap: 10 }}>
+                <input type="text" value={commentText} onChange={e => setCommentText(e.target.value)} placeholder="댓글을 입력하세요..." style={{ flex: 1, padding: "12px 16px", borderRadius: 999, border: `1px solid ${theme.bg}`, outline: "none", fontFamily: FONT_BODY, fontSize: 14 }} />
+                <button onClick={handleAddComment} style={{ background: theme.main, color: theme.white, border: "none", padding: "0 20px", borderRadius: 999, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer" }}>등록</button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div style={{ display: "flex", flexDirection: "column", minHeight: "100%" }}>
       <div style={{ background: theme.white, padding: "16px 18px 12px" }}>
@@ -479,28 +556,20 @@ function CategoryScreen() {
           );
         })}
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 16, padding: "16px 14px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 8, padding: "16px 14px" }}>
         {filteredPosts.length > 0 ? (
           filteredPosts.map((p) => {
             const postCatData = content.categories.find(c => c.label === p.category);
             const BadgeIcon = postCatData ? (ICONS[postCatData.icon] || PawPrint) : PawPrint;
             return (
-              <div key={p.id} style={{ background: theme.white, borderRadius: 20, paddingBottom: 16, boxShadow: "0 4px 12px rgba(107,91,82,0.03)", animation: "fadeInUp 0.3s ease", overflow: "hidden" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "16px 18px 12px" }}>
-                  <EditImage src={p.avatar} editMode={editMode} onChange={(url) => updatePost(p.id, { avatar: url })} style={{ width: 34, height: 34, borderRadius: "50%" }} />
-                  <EditText value={p.nickname} editMode={editMode} onChange={(v) => updatePost(p.id, { nickname: v })} style={{ fontSize: 13.5, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }} />
-                  <div style={{ width: 28, height: 28, background: theme.soft, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", marginLeft: "auto", boxShadow: "0 2px 8px rgba(107,91,82,0.15)" }}><BadgeIcon size={14} color={theme.white} strokeWidth={2.5} /></div>
-                </div>
-                <div style={{ position: "relative" }}>
-                  <EditImage src={p.photo} editMode={editMode} onChange={(url) => updatePost(p.id, { photo: url })} style={{ width: "100%", height: 180 }} />
-                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "rgba(107,91,82,0.85)", padding: "10px 0", display: "flex", justifyContent: "center", gap: 24 }}><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><Heart size={15} /> {p.likes}</span><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><MessageCircle size={15} /> {p.comments}</span><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><Share2 size={15} /></span></div>
-                </div>
-                <div style={{ padding: "14px 18px 0" }}><EditText value={p.caption} editMode={editMode} onChange={(v) => updatePost(p.id, { caption: v })} style={{ fontSize: 13, color: theme.main, fontFamily: FONT_BODY, lineHeight: 1.6 }} /></div>
+              <div key={p.id} onClick={() => setDetailPost(p)} style={{ background: theme.white, borderRadius: 16, boxShadow: "0 4px 12px rgba(107,91,82,0.04)", animation: "fadeInUp 0.3s ease", overflow: "hidden", cursor: "pointer", position: "relative" }}>
+                <EditImage src={p.photo} editMode={false} onChange={()=>{}} style={{ width: "100%", aspectRatio: "1 / 1" }} />
+                <div style={{ position: "absolute", top: 8, right: 8, width: 24, height: 24, background: theme.soft, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 8px rgba(107,91,82,0.15)" }}><BadgeIcon size={12} color={theme.white} strokeWidth={2.5} /></div>
               </div>
             )
           })
         ) : (
-          <div style={{ padding: "60px 0", textAlign: "center", color: theme.sub, fontSize: 13, fontFamily: FONT_BODY, animation: "fadeInUp 0.3s ease" }}>해당 카테고리의 게시물이 아직 없습니다. 🐶</div>
+          <div style={{ gridColumn: "1 / -1", padding: "60px 0", textAlign: "center", color: theme.sub, fontSize: 13, fontFamily: FONT_BODY }}>해당 카테고리의 게시물이 아직 없습니다. 🐶</div>
         )}
       </div>
       <div style={{ flex: 1 }}></div>
@@ -583,41 +652,6 @@ function MapScreen() {
   );
 }
 
-function AlbumScreen() {
-  const { theme, content } = useApp();
-  const [activeMonth, setActiveMonth] = useState(0);
-  const [building, setBuilding] = useState(false);
-  const currentAlbum = content.petAlbums[activeMonth] || content.petAlbums[0];
-
-  return (
-    <div style={{ paddingBottom: 92 }}>
-      <div style={{ background: theme.white, paddingBottom: 16, borderRadius: "0 0 24px 24px", boxShadow: "0 4px 16px rgba(107,91,82,0.04)", position: "relative", zIndex: 10 }}>
-        <div style={{ padding: "12px 0 16px" }}><Logo size={19} center /></div>
-        <div className="app-scroll" style={{ display: "flex", gap: 8, padding: "0 18px", overflowX: "auto" }}>
-          {content.petAlbums.map((a, i) => (
-            <button key={i} onClick={() => setActiveMonth(i)} style={{ flexShrink: 0, border: "none", cursor: "pointer", borderRadius: 999, padding: "7px 14px", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 700, background: activeMonth === i ? theme.main : theme.bg, color: activeMonth === i ? theme.white : theme.main }}>{a.month}</button>
-          ))}
-        </div>
-      </div>
-      <div style={{ position: "relative", padding: "12px 3px" }}>
-        {currentAlbum && (
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 3 }}>
-            {currentAlbum.photos.map((src, i) => (
-              <div key={i} style={{ width: "100%", aspectRatio: "1 / 1", borderRadius: 4, overflow: "hidden" }}><img src={src} style={{ width: "100%", height: "100%", objectFit: "cover" }} alt="" /></div>
-            ))}
-          </div>
-        )}
-        <div style={{ position: "absolute", left: "10%", right: "10%", top: "42%", display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-          <ChevronDown size={16} color={theme.white} style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.3))" }} />
-          <button onClick={() => { setBuilding(true); setTimeout(() => setBuilding(false), 1600); }} style={{ border: "none", cursor: "pointer", borderRadius: 999, padding: "10px 22px", background: "rgba(168,183,161,0.95)", color: theme.white, fontFamily: FONT_BODY, fontWeight: 700, fontSize: 13, display: "flex", alignItems: "center", gap: 6, boxShadow: "0 4px 14px rgba(0,0,0,0.15)" }}>
-            <Sparkles size={14} /> {building ? "만드는 중..." : "AI 앨범 제작하기"}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function SettingsScreen() {
   const { theme, setScreen } = useApp();
   return (
@@ -664,8 +698,12 @@ const SCREENS = { splash: SplashScreen, feed: FeedScreen, profile: ProfileScreen
 function PhoneShell() {
   const { theme, screen } = useApp();
   const Screen = SCREENS[screen];
+  
+  // URL 주소창 끝에 ?mockup=true 가 붙어있는지 확인하는 장치입니다.
+  const isMockup = new URLSearchParams(window.location.search).get("mockup") === "true";
+
   return (
-    <div style={{ position: "relative", width: "100vw", height: "100dvh", background: theme.bg, overflow: "hidden" }}>
+    <div style={{ position: "relative", width: isMockup ? "100%" : "100vw", height: isMockup ? "100%" : "100dvh", background: theme.bg, overflow: "hidden" }}>
       <div className="app-scroll" style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, overflowY: screen === "splash" || screen === "map" ? "hidden" : "auto" }}>
         <Screen />
       </div>
@@ -684,9 +722,15 @@ export default function NuzzleApp() {
     setTheme(DEFAULT_THEME); setContent(DEFAULT_CONTENT); setScreen("splash"); setEditMode(false);
   };
 
+  const isMockup = new URLSearchParams(window.location.search).get("mockup") === "true";
+
   return (
     <AppCtx.Provider value={{ theme, setTheme, content, setContent, editMode, setEditMode, screen, setScreen, resetAll }}>
-      <div style={{ width: "100vw", height: "100dvh", margin: 0, padding: 0, fontFamily: FONT_BODY }}>
+      <div style={
+        isMockup 
+        ? { minHeight: "100vh", background: "#efe6d8", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "32px 12px", fontFamily: FONT_BODY }
+        : { width: "100vw", height: "100dvh", margin: 0, padding: 0, fontFamily: FONT_BODY }
+      }>
         <style>{`
           @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
           @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
@@ -700,7 +744,22 @@ export default function NuzzleApp() {
           @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
           @keyframes pulse { 0% { transform: scale(0.6); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
         `}</style>
-        <PhoneShell />
+
+        {isMockup ? (
+          <div style={{ width: 375, height: 780, background: "#1c1a19", borderRadius: 46, padding: 12, boxShadow: "0 30px 60px rgba(0,0,0,0.25)" }}>
+            <div style={{ position: "relative", width: "100%", height: "100%", background: theme.bg, borderRadius: 34, overflow: "hidden" }}>
+              <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: 120, height: 26, background: "#1c1a19", borderRadius: "0 0 16px 16px", zIndex: 30 }} />
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 44, background: screen === "splash" ? theme.bg : theme.white, zIndex: 25, borderRadius: "34px 34px 0 0" }}>
+                <StatusBar />
+              </div>
+              <div className="app-scroll" style={{ position: "absolute", top: 44, left: 0, right: 0, bottom: 0, overflowY: screen === "splash" || screen === "map" ? "hidden" : "auto" }}>
+                <PhoneShell />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <PhoneShell />
+        )}
       </div>
     </AppCtx.Provider>
   );
