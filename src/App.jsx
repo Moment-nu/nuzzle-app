@@ -21,7 +21,7 @@ const DEFAULT_THEME = {
 const ICONS = { Footprints, Stethoscope, Scissors, Cookie, Dumbbell, ShoppingBag, PawPrint };
 
 /* ---------------------------------------------
-   Default content (데이터 원복 및 카테고리 24개 확장)
+   Default content (데이터 원복 및 확장)
 --------------------------------------------- */
 const DEFAULT_CONTENT = {
   tagline: "일상 속 친근한 연결",
@@ -60,12 +60,12 @@ const DEFAULT_CONTENT = {
     { id: 105, category: "산책", avatar: "https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg", nickname: "run_corgi", photo: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&q=80", caption: "새로 산 하네스 개시! 색깔 완전 찰떡이지 않나요?", likes: 142, comments: 18, hasLiked: false },
     { id: 106, category: "산책", avatar: "https://i.pinimg.com/1200x/43/2b/99/432b994b640c12376498b74e0776b976.jpg", nickname: "shiba_smile", photo: "https://images.unsplash.com/photo-1544568100-847a948585b9?w=600&q=80", caption: "안 간다고 버티기 시전 중... 10분째 대치 상태입니다.", likes: 350, comments: 55, hasLiked: false },
     
-    { id: 201, category: "병원", avatar: "https://i.pinimg.com/736x/ac/c0/78/acc078e056812cf937c3f4cf7cabfeaf.jpg", nickname: "nuzzle_w", photo: "https://images.unsplash.com/photo-1584815682414-7cf6b142eb3c?w=600&q=80", caption: "고양이 중성화 수술 후 회복 기간 얼마나 걸렸는지 여쭤봐도 될까요? 넥카라를 너무 불편해해서 걱정입니다.", likes: 24, comments: 9, hasLiked: false },
+    { id: 201, category: "병원", avatar: "https://i.pinimg.com/736x/ac/c0/78/acc078e056812cf937c3f4cf7cabfeaf.jpg", nickname: "nuzzle_w", photo: "https://images.unsplash.com/photo-1584815682414-7cf6b142eb3c?w=600&q=80", caption: "중성화 수술 후 회복 기간 얼마나 걸렸는지 여쭤봐도 될까요? 넥카라를 너무 불편해해서 걱정입니다.", likes: 24, comments: 9, hasLiked: false },
     { id: 202, category: "병원", avatar: "https://i.pinimg.com/736x/c6/f0/6c/c6f06c9127c5fb0818b8fa271bba6299.jpg", nickname: "golden_boy", photo: "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=600&q=80", caption: "심장사상충 약 먹이는 꿀팁 공유합니다. 간식 사이에 숨겨서 주는 게 최고네요.", likes: 110, comments: 22, hasLiked: false },
     { id: 203, category: "병원", avatar: "https://i.pinimg.com/1200x/35/c0/c0/35c0c07e5befff32632101157f40bcc7.jpg", nickname: "cheese_tabby", photo: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80", caption: "종합백신 맞으러 왔는데 긴장해서 숨어있는 중 ㅠㅠ", likes: 85, comments: 14, hasLiked: false },
     { id: 204, category: "병원", avatar: "https://i.pinimg.com/1200x/18/d8/8b/18d88ba6b3e6b34f3a0a667a1e3b5ff0.jpg", nickname: "black_bean", photo: "https://images.unsplash.com/photo-1599839619722-39751411ea63?w=600&q=80", caption: "건강검진 결과 다행히 아주 건강하대요! 다이어트만 조금 하라고 하시네요 ㅎㅎ", likes: 230, comments: 40, hasLiked: false },
     { id: 205, category: "병원", avatar: "https://i.pinimg.com/736x/07/0a/4c/070a4c68083579a0f43d427e778d586d.jpg", nickname: "bichon_cloud", photo: "https://images.unsplash.com/photo-1554692928-dfa2c262d512?w=600&q=80", caption: "슬개골 탈구 의심돼서 엑스레이 찍고 왔어요. 아직 1기라 관리만 잘해주면 된대요.", likes: 95, comments: 16, hasLiked: false },
-    { id: 206, category: "병원", avatar: "https://i.pinimg.com/736x/59/1b/b5/591bb59e86fe5178c2f22126230cfb0c.jpg", nickname: "meow_life", photo: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80", caption: "동물병원 고양이 친화 진료실 너무 좋네요. 대기실부터 분리되어 있어서 안심입니다.", likes: 160, comments: 25, hasLiked: false },
+    { id: 206, category: "병원", avatar: "https://i.pinimg.com/736x/59/1b/b5/591bb59e86fe5178c2f22126230cfb0c.jpg", nickname: "meow_life", photo: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80", caption: "동물병원 친화 진료실 너무 좋네요. 대기실부터 분리되어 있어서 안심입니다.", likes: 160, comments: 25, hasLiked: false },
 
     { id: 301, category: "간식", avatar: "https://i.pinimg.com/736x/59/1b/b5/591bb59e86fe5178c2f22126230cfb0c.jpg", nickname: "boder_col", photo: "https://images.unsplash.com/photo-1582562124811-c09040d0a907?w=600&q=80", caption: "수제 간식 처음 만들어봤는데 애가 안 먹네요... 닭가슴살 져키 레시피 꿀팁 있으신 분?", likes: 15, comments: 5, hasLiked: false },
     { id: 302, category: "간식", avatar: "https://i.pinimg.com/736x/97/dd/bd/97ddbd79b3fc4e250884917c61d61dd0.jpg", nickname: "choco_poodle", photo: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&q=80", caption: "요즘 유행하는 동결건조 간식 사봤는데 기호성 대박이에요!", likes: 145, comments: 22, hasLiked: false },
@@ -92,11 +92,8 @@ const DEFAULT_CONTENT = {
     { id: 7, name: "러블리퍼피 당산", tag: "미용실", top: "40%", left: "36%" },
     { id: 8, name: "24시 수동물의료센터", tag: "동물병원", top: "76%", left: "53%" },
     { id: 9, name: "IFC몰 (애견동반)", tag: "산책로", top: "40%", left: "73%" },
-    { id: 10, name: "더현대 서울", tag: "동반식당", top: "38%", left: "77%" },
-    { id: 11, name: "서울마리나 펫스토랑", tag: "펫카페", top: "32%", left: "60%" },
-    { id: 12, name: "멍멍당 당산점", tag: "펫카페", top: "30%", left: "35%" },
   ],
-  albumMonths: ["Jan.", "Feb.", "Mar.", "Apr.", "May."],
+  albumMonths: ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sep.", "Oct."],
   albumPhotos: [
     "https://i.pinimg.com/736x/c6/f0/6c/c6f06c9127c5fb0818b8fa271bba6299.jpg",
     "https://i.pinimg.com/1200x/d0/e4/dc/d0e4dc68a35ed1e55ea02d3639c01efb.jpg",
@@ -118,6 +115,11 @@ const DEFAULT_CONTENT = {
     "https://i.pinimg.com/736x/68/6c/24/686c24487159c9626e1ad92ffa231c25.jpg",
   ],
   timelinePhotos: [
+    { month: "Oct.", img: "https://picsum.photos/seed/nuzzle-tl-10/600/260" },
+    { month: "Sep.", img: "https://picsum.photos/seed/nuzzle-tl-9/600/260" },
+    { month: "Aug.", img: "https://picsum.photos/seed/nuzzle-tl-8/600/260" },
+    { month: "Jul.", img: "https://picsum.photos/seed/nuzzle-tl-7/600/260" },
+    { month: "Jun.", img: "https://picsum.photos/seed/nuzzle-tl-6/600/260" },
     { month: "May.", img: "https://picsum.photos/seed/nuzzle-tl-5/600/260" },
     { month: "Apr.", img: "https://picsum.photos/seed/nuzzle-tl-4/600/260" },
     { month: "Mar.", img: "https://picsum.photos/seed/nuzzle-tl-3/600/260" },
@@ -458,6 +460,7 @@ function CategoryScreen() {
     );
   }
 
+  // 원래의 세로형 피드 포맷으로 원복
   return (
     <div style={{ display: "flex", flexDirection: "column", minHeight: "100%" }}>
       <div style={{ background: theme.white, padding: "16px 18px 12px" }}>
@@ -493,7 +496,7 @@ function CategoryScreen() {
                 </div>
                 <div style={{ position: "relative" }}>
                   <EditImage src={p.photo} editMode={editMode} onChange={(url) => updatePost(p.id, { photo: url })} style={{ width: "100%", height: 180 }} />
-                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "rgba(107,91,82,0.85)", padding: "10px 0", display: "flex", justifyContent: "center", gap: 24 }}><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><Heart size={15} /> {p.likes}</span><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><MessageCircle size={15} /> {p.comments}</span><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><Share2 size={15} /></span></div>
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "rgba(107,91,82,0.85)", padding: "10px 0", display: "flex", justifyContent: "center", gap: 24 }}><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><Heart size={15} fill={p.hasLiked ? "#fff" : "none"} color="#fff" /> {p.likes}</span><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><MessageCircle size={15} /> {p.comments}</span><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><Share2 size={15} /></span></div>
                 </div>
                 <div style={{ padding: "14px 18px 0" }}><EditText value={p.caption} editMode={editMode} onChange={(v) => updatePost(p.id, { caption: v })} style={{ fontSize: 13, color: theme.main, fontFamily: FONT_BODY, lineHeight: 1.6 }} /></div>
               </div>
@@ -506,22 +509,6 @@ function CategoryScreen() {
       <div style={{ flex: 1 }}></div>
       <div style={{ position: "sticky", bottom: 85, alignSelf: "flex-end", marginRight: 18, zIndex: 50 }}><button onClick={() => setIsWriting(true)} style={{ width: 56, height: 56, borderRadius: "50%", background: theme.main, border: "none", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 6px 16px rgba(107,91,82,0.3)", cursor: "pointer", transition: "transform 0.2s ease" }}><Pencil size={24} color={theme.white} style={{ transform: "translate(1px, -1px)" }} /></button></div>
       <div style={{ height: 92, flexShrink: 0 }}></div>
-
-      {activeCommentPost && (
-        <div style={{ position: "fixed", inset: 0, zIndex: 50, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)" }} onClick={() => setActiveCommentPost(null)} />
-          <div style={{ background: theme.white, borderRadius: "24px 24px 0 0", padding: "20px", position: "relative", zIndex: 51, animation: "fadeInUp 0.3s ease" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
-              <span style={{ fontWeight: 700, fontFamily: FONT_BODY, color: theme.main }}>댓글 달기</span>
-              <button onClick={() => setActiveCommentPost(null)} style={{ border: "none", background: "none", cursor: "pointer" }}><X size={20} color={theme.main}/></button>
-            </div>
-            <div style={{ display: "flex", gap: 10 }}>
-              <input type="text" value={commentText} onChange={e => setCommentText(e.target.value)} placeholder="댓글을 입력하세요..." style={{ flex: 1, padding: "12px 16px", borderRadius: 999, border: `1px solid ${theme.bg}`, outline: "none", fontFamily: FONT_BODY, fontSize: 14 }} />
-              <button onClick={handleAddComment} style={{ background: theme.main, color: theme.white, border: "none", padding: "0 20px", borderRadius: 999, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer" }}>등록</button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
@@ -599,40 +586,6 @@ function MapScreen() {
   );
 }
 
-function AlbumScreen() {
-  const { theme, content, setContent, editMode } = useApp();
-  const [activeMonth, setActiveMonth] = useState(0);
-  const [building, setBuilding] = useState(false);
-
-  return (
-    <div style={{ paddingBottom: 92 }}>
-      <div style={{ background: theme.white, paddingBottom: 16, borderRadius: "0 0 24px 24px", boxShadow: "0 4px 16px rgba(107,91,82,0.04)", position: "relative", zIndex: 10 }}>
-        <div style={{ padding: "12px 0 16px" }}><Logo size={19} center /></div>
-        <div className="app-scroll" style={{ display: "flex", gap: 8, padding: "0 18px", overflowX: "auto" }}>
-          {content.albumMonths.map((m, i) => (
-            <button key={i} onClick={() => setActiveMonth(i)} style={{ flexShrink: 0, border: "none", cursor: "pointer", borderRadius: 999, padding: "7px 14px", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 700, background: activeMonth === i ? theme.main : theme.bg, color: activeMonth === i ? theme.white : theme.main }}>
-              <EditText value={m} editMode={editMode} onChange={(v) => setContent((c) => ({ ...c, albumMonths: c.albumMonths.map((mm, mi) => (mi === i ? v : mm)) }))} style={{}} />
-            </button>
-          ))}
-        </div>
-      </div>
-      <div style={{ position: "relative", padding: "12px 3px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 3 }}>
-          {content.albumPhotos.map((src, i) => (
-            <EditImage key={i} src={src} editMode={editMode} onChange={(url) => setContent((c) => ({ ...c, albumPhotos: c.albumPhotos.map((p, pi) => (pi === i ? url : p)) }))} style={{ width: "100%", aspectRatio: "1 / 1", borderRadius: 4 }} />
-          ))}
-        </div>
-        <div style={{ position: "absolute", left: "10%", right: "10%", top: "42%", display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
-          <ChevronDown size={16} color={theme.white} style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.3))" }} />
-          <button onClick={() => { setBuilding(true); setTimeout(() => setBuilding(false), 1600); }} style={{ border: "none", cursor: "pointer", borderRadius: 999, padding: "10px 22px", background: "rgba(168,183,161,0.95)", color: theme.white, fontFamily: FONT_BODY, fontWeight: 700, fontSize: 13, display: "flex", alignItems: "center", gap: 6, boxShadow: "0 4px 14px rgba(0,0,0,0.15)" }}>
-            <Sparkles size={14} /> {building ? "만드는 중..." : "AI 앨범 제작하기"}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function SettingsScreen() {
   const { theme, setScreen } = useApp();
   return (
@@ -674,13 +627,13 @@ function BottomNav() {
   );
 }
 
-const SCREENS = { splash: SplashScreen, feed: FeedScreen, profile: ProfileScreen, category: CategoryScreen, map: MapScreen, settings: SettingsScreen, album: AlbumScreen };
+const SCREENS = { splash: SplashScreen, feed: FeedScreen, profile: ProfileScreen, category: CategoryScreen, map: MapScreen, settings: SettingsScreen };
 
 function PhoneShell() {
   const { theme, screen } = useApp();
   const Screen = SCREENS[screen];
   
-  // URL에 ?mockup=true 가 붙어있는지 확인하여 구조를 결정합니다.
+  // URL 주소창 끝에 ?mockup=true 가 붙어있는지 확인하여 분기 처리합니다.
   const isMockup = new URLSearchParams(window.location.search).get("mockup") === "true";
 
   return (
@@ -727,7 +680,7 @@ export default function NuzzleApp() {
         `}</style>
         
         {isMockup ? (
-          <div style={{ width: 375, height: 780, background: "#1c1a19", borderRadius: 46, padding: 12, boxShadow: "0 30px 60px rgba(0,0,0,0.25)", position: "relative" }}>
+          <div style={{ width: 375, height: 780, background: "#1c1a19", borderRadius: 46, padding: 12, boxShadow: "0 30px 60px rgba(0,0,0,0.25)" }}>
             <div style={{ position: "relative", width: "100%", height: "100%", background: theme.bg, borderRadius: 34, overflow: "hidden" }}>
               <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: 120, height: 26, background: "#1c1a19", borderRadius: "0 0 16px 16px", zIndex: 30 }} />
               <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 44, background: screen === "splash" ? theme.bg : theme.white, zIndex: 25, borderRadius: "34px 34px 0 0" }}>
