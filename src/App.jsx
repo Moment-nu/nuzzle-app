@@ -21,7 +21,7 @@ const DEFAULT_THEME = {
 const ICONS = { Footprints, Stethoscope, Scissors, Cookie, Dumbbell, ShoppingBag, PawPrint };
 
 /* ---------------------------------------------
-   Default content (데이터 통합 및 확장)
+   Default content (데이터 원복 및 카테고리 24개 확장)
 --------------------------------------------- */
 const DEFAULT_CONTENT = {
   tagline: "일상 속 친근한 연결",
@@ -92,39 +92,37 @@ const DEFAULT_CONTENT = {
     { id: 7, name: "러블리퍼피 당산", tag: "미용실", top: "40%", left: "36%" },
     { id: 8, name: "24시 수동물의료센터", tag: "동물병원", top: "76%", left: "53%" },
     { id: 9, name: "IFC몰 (애견동반)", tag: "산책로", top: "40%", left: "73%" },
+    { id: 10, name: "더현대 서울", tag: "동반식당", top: "38%", left: "77%" },
+    { id: 11, name: "서울마리나 펫스토랑", tag: "펫카페", top: "32%", left: "60%" },
+    { id: 12, name: "멍멍당 당산점", tag: "펫카페", top: "30%", left: "35%" },
   ],
-  albumMonths: ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sep.", "Oct."],
+  albumMonths: ["Jan.", "Feb.", "Mar.", "Apr.", "May."],
   albumPhotos: [
-    "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&q=80",
-    "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=400&q=80",
-    "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=400&q=80",
-    "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=400&q=80",
-    "https://images.unsplash.com/photo-1529778456725-dbea72ce3c53?w=400&q=80",
-    "https://images.unsplash.com/photo-1501820488136-72669149e0d4?w=400&q=80",
-    "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=400&q=80",
-    "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=400&q=80",
-    "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=400&q=80",
-    "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&q=80",
-    "https://images.unsplash.com/photo-1583083527882-4bee9aba2eea?w=400&q=80",
-    "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=400&q=80",
-    "https://images.unsplash.com/photo-1561948955-570b270e7c36?w=400&q=80",
-    "https://images.unsplash.com/photo-1615397323282-311029c2f6d5?w=400&q=80",
-    "https://images.unsplash.com/photo-1568152950566-c1bf43f4ab28?w=400&q=80",
-    "https://images.unsplash.com/photo-1555685812-4b743e8362e0?w=400&q=80",
-    "https://images.unsplash.com/photo-1606214174585-fd3158ddf451?w=400&q=80",
-    "https://images.unsplash.com/photo-1511044568932-338cba0ad803?w=400&q=80"
+    "https://i.pinimg.com/736x/c6/f0/6c/c6f06c9127c5fb0818b8fa271bba6299.jpg",
+    "https://i.pinimg.com/1200x/d0/e4/dc/d0e4dc68a35ed1e55ea02d3639c01efb.jpg",
+    "https://i.pinimg.com/1200x/35/c0/c0/35c0c07e5befff32632101157f40bcc7.jpg",
+    "https://i.pinimg.com/1200x/8c/0f/5a/8c0f5a06724a0a6e3eef9a9c93918116.jpg",
+    "https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg",
+    "https://i.pinimg.com/736x/72/50/e2/7250e2fbded6241d9a21883c9b1a8e57.jpg",
+    "https://i.pinimg.com/1200x/43/2b/99/432b994b640c12376498b74e0776b976.jpg",
+    "https://i.pinimg.com/736x/3b/32/40/3b3240e6d21c815ae3c74a873d2569d4.jpg",
+    "https://i.pinimg.com/1200x/18/d8/8b/18d88ba6b3e6b34f3a0a667a1e3b5ff0.jpg",
+    "https://i.pinimg.com/1200x/32/cc/3d/32cc3d06e1a63e7c5f130bfec6aefcbf.jpg",
+    "https://i.pinimg.com/736x/07/0a/4c/070a4c68083579a0f43d427e778d586d.jpg",
+    "https://i.pinimg.com/736x/06/ab/23/06ab23428f95079af047112ce5f772fb.jpg",
+    "https://i.pinimg.com/1200x/58/30/83/583083d769d1d562e4aa13dd3485bf4c.jpg",
+    "https://i.pinimg.com/1200x/8b/03/02/8b0302799df5d6df418cd79e60fe9da7.jpg",
+    "https://i.pinimg.com/1200x/3c/7a/37/3c7a37ba937842bb187d0512170c2a45.jpg",
+    "https://i.pinimg.com/736x/a6/c1/ee/a6c1ee56238b5b592f7cebacb6fa3164.jpg",
+    "https://i.pinimg.com/736x/8e/4d/2c/8e4d2c81d78e77a06cc71fdfcc636440.jpg",
+    "https://i.pinimg.com/736x/68/6c/24/686c24487159c9626e1ad92ffa231c25.jpg",
   ],
   timelinePhotos: [
-    { month: "Oct.", img: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80" },
-    { month: "Sep.", img: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=600&q=80" },
-    { month: "Aug.", img: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=600&q=80" },
-    { month: "Jul.", img: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=600&q=80" },
-    { month: "Jun.", img: "https://images.unsplash.com/photo-1529778456725-dbea72ce3c53?w=600&q=80" },
-    { month: "May.", img: "https://images.unsplash.com/photo-1501820488136-72669149e0d4?w=600&q=80" },
-    { month: "Apr.", img: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=600&q=80" },
-    { month: "Mar.", img: "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=600&q=80" },
-    { month: "Feb.", img: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=600&q=80" },
-    { month: "Jan.", img: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&q=80" },
+    { month: "May.", img: "https://picsum.photos/seed/nuzzle-tl-5/600/260" },
+    { month: "Apr.", img: "https://picsum.photos/seed/nuzzle-tl-4/600/260" },
+    { month: "Mar.", img: "https://picsum.photos/seed/nuzzle-tl-3/600/260" },
+    { month: "Feb.", img: "https://picsum.photos/seed/nuzzle-tl-2/600/260" },
+    { month: "Jan.", img: "https://picsum.photos/seed/nuzzle-tl-1/600/260" },
   ],
 };
 
@@ -388,8 +386,6 @@ function CategoryScreen() {
   const { theme, content, setContent, editMode } = useApp();
   const [activeCat, setActiveCat] = useState('all');
   const [isWriting, setIsWriting] = useState(false);
-  const [detailPost, setDetailPost] = useState(null);
-  
   const [newPhoto, setNewPhoto] = useState("https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg");
   const [newCatLabel, setNewCatLabel] = useState(content.categories[0]?.label || "산책");
   const [newCaption, setNewCaption] = useState("");
@@ -405,7 +401,6 @@ function CategoryScreen() {
   const toggleLike = (post) => {
     const isLiked = post.hasLiked;
     updatePost(post.id, { hasLiked: !isLiked, likes: post.likes + (isLiked ? -1 : 1) });
-    if(detailPost && detailPost.id === post.id) setDetailPost({...detailPost, hasLiked: !isLiked, likes: detailPost.likes + (isLiked ? -1 : 1)});
   };
 
   const handleShare = (post) => {
@@ -417,7 +412,6 @@ function CategoryScreen() {
     if (!commentText.trim()) return;
     const post = content.communityPosts.find(p => p.id === activeCommentPost);
     updatePost(activeCommentPost, { comments: post.comments + 1 });
-    if(detailPost && detailPost.id === activeCommentPost) setDetailPost({...detailPost, comments: detailPost.comments + 1});
     setCommentText(""); alert("댓글이 등록되었습니다."); 
   };
 
@@ -464,55 +458,6 @@ function CategoryScreen() {
     );
   }
 
-  if (detailPost) {
-    return (
-      <div style={{ display: "flex", flexDirection: "column", height: "100%", background: theme.white, animation: "fadeInUp 0.2s ease" }}>
-        <div style={{ display: "flex", alignItems: "center", padding: "16px 18px", borderBottom: `1px solid ${theme.bg}`, position: "sticky", top: 0, background: theme.white, zIndex: 10 }}>
-          <button onClick={() => setDetailPost(null)} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "flex" }}>
-            <ChevronLeft size={28} color={theme.main} />
-          </button>
-          <span style={{ flex: 1, textAlign: "center", fontSize: 16, fontWeight: 700, color: theme.main, marginRight: 28, fontFamily: FONT_BODY }}>게시물</span>
-        </div>
-        <div className="app-scroll" style={{ flex: 1, overflowY: "auto", paddingBottom: 100 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "16px 18px 12px" }}>
-            <EditImage src={detailPost.avatar} editMode={editMode} onChange={(url) => updatePost(detailPost.id, { avatar: url })} style={{ width: 34, height: 34, borderRadius: "50%" }} />
-            <EditText value={detailPost.nickname} editMode={editMode} onChange={(v) => updatePost(detailPost.id, { nickname: v })} style={{ fontSize: 13.5, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }} />
-          </div>
-          <EditImage src={detailPost.photo} editMode={editMode} onChange={(url) => updatePost(detailPost.id, { photo: url })} style={{ width: "100%", aspectRatio: "1/1.1" }} />
-          <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "12px 18px 6px" }}>
-            <span style={{ display: "flex", alignItems: "center", gap: 4, cursor: "pointer" }} onClick={() => toggleLike(detailPost)}>
-              <Heart size={21} fill={detailPost.hasLiked ? theme.soft : "none"} color={detailPost.hasLiked ? theme.soft : theme.sub} strokeWidth={2} />
-              <span style={{ fontSize: 13, color: theme.main, fontWeight: 500 }}>{detailPost.likes}</span>
-            </span>
-            <span style={{ display: "flex", alignItems: "center", gap: 4, cursor: "pointer" }} onClick={() => setActiveCommentPost(detailPost.id)}>
-              <MessageCircle size={21} color={theme.sub} strokeWidth={2} />
-              <span style={{ fontSize: 13, color: theme.main, fontWeight: 500 }}>{detailPost.comments}</span>
-            </span>
-            <Share2 size={19} color={theme.sub} strokeWidth={2} cursor="pointer" onClick={() => handleShare(detailPost)} />
-          </div>
-          <div style={{ padding: "6px 18px 24px" }}>
-            <EditText value={detailPost.caption} editMode={editMode} onChange={(v) => updatePost(detailPost.id, { caption: v })} style={{ fontSize: 14, color: theme.main, fontFamily: FONT_BODY, lineHeight: 1.6 }} />
-          </div>
-        </div>
-        {activeCommentPost && (
-          <div style={{ position: "fixed", inset: 0, zIndex: 50, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-            <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)" }} onClick={() => setActiveCommentPost(null)} />
-            <div style={{ background: theme.white, borderRadius: "24px 24px 0 0", padding: "20px", position: "relative", zIndex: 51, animation: "fadeInUp 0.3s ease" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
-                <span style={{ fontWeight: 700, fontFamily: FONT_BODY, color: theme.main }}>댓글 달기</span>
-                <button onClick={() => setActiveCommentPost(null)} style={{ border: "none", background: "none", cursor: "pointer" }}><X size={20} color={theme.main}/></button>
-              </div>
-              <div style={{ display: "flex", gap: 10 }}>
-                <input type="text" value={commentText} onChange={e => setCommentText(e.target.value)} placeholder="댓글을 입력하세요..." style={{ flex: 1, padding: "12px 16px", borderRadius: 999, border: `1px solid ${theme.bg}`, outline: "none", fontFamily: FONT_BODY, fontSize: 14 }} />
-                <button onClick={handleAddComment} style={{ background: theme.main, color: theme.white, border: "none", padding: "0 20px", borderRadius: 999, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer" }}>등록</button>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    );
-  }
-
   return (
     <div style={{ display: "flex", flexDirection: "column", minHeight: "100%" }}>
       <div style={{ background: theme.white, padding: "16px 18px 12px" }}>
@@ -534,25 +479,49 @@ function CategoryScreen() {
           );
         })}
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 8, padding: "16px 14px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: 16, padding: "16px 14px" }}>
         {filteredPosts.length > 0 ? (
           filteredPosts.map((p) => {
             const postCatData = content.categories.find(c => c.label === p.category);
             const BadgeIcon = postCatData ? (ICONS[postCatData.icon] || PawPrint) : PawPrint;
             return (
-              <div key={p.id} onClick={() => setDetailPost(p)} style={{ background: theme.white, borderRadius: 16, boxShadow: "0 4px 12px rgba(107,91,82,0.04)", animation: "fadeInUp 0.3s ease", overflow: "hidden", cursor: "pointer", position: "relative" }}>
-                <EditImage src={p.photo} editMode={false} onChange={()=>{}} style={{ width: "100%", aspectRatio: "1 / 1" }} />
-                <div style={{ position: "absolute", top: 8, right: 8, width: 24, height: 24, background: theme.soft, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 2px 8px rgba(107,91,82,0.15)" }}><BadgeIcon size={12} color={theme.white} strokeWidth={2.5} /></div>
+              <div key={p.id} style={{ background: theme.white, borderRadius: 20, paddingBottom: 16, boxShadow: "0 4px 12px rgba(107,91,82,0.03)", animation: "fadeInUp 0.3s ease", overflow: "hidden" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "16px 18px 12px" }}>
+                  <EditImage src={p.avatar} editMode={editMode} onChange={(url) => updatePost(p.id, { avatar: url })} style={{ width: 34, height: 34, borderRadius: "50%" }} />
+                  <EditText value={p.nickname} editMode={editMode} onChange={(v) => updatePost(p.id, { nickname: v })} style={{ fontSize: 13.5, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }} />
+                  <div style={{ width: 28, height: 28, background: theme.soft, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", marginLeft: "auto", boxShadow: "0 2px 8px rgba(107,91,82,0.15)" }}><BadgeIcon size={14} color={theme.white} strokeWidth={2.5} /></div>
+                </div>
+                <div style={{ position: "relative" }}>
+                  <EditImage src={p.photo} editMode={editMode} onChange={(url) => updatePost(p.id, { photo: url })} style={{ width: "100%", height: 180 }} />
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "rgba(107,91,82,0.85)", padding: "10px 0", display: "flex", justifyContent: "center", gap: 24 }}><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><Heart size={15} /> {p.likes}</span><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><MessageCircle size={15} /> {p.comments}</span><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><Share2 size={15} /></span></div>
+                </div>
+                <div style={{ padding: "14px 18px 0" }}><EditText value={p.caption} editMode={editMode} onChange={(v) => updatePost(p.id, { caption: v })} style={{ fontSize: 13, color: theme.main, fontFamily: FONT_BODY, lineHeight: 1.6 }} /></div>
               </div>
             )
           })
         ) : (
-          <div style={{ gridColumn: "1 / -1", padding: "60px 0", textAlign: "center", color: theme.sub, fontSize: 13, fontFamily: FONT_BODY }}>해당 카테고리의 게시물이 아직 없습니다. 🐶</div>
+          <div style={{ padding: "60px 0", textAlign: "center", color: theme.sub, fontSize: 13, fontFamily: FONT_BODY, animation: "fadeInUp 0.3s ease" }}>해당 카테고리의 게시물이 아직 없습니다. 🐶</div>
         )}
       </div>
       <div style={{ flex: 1 }}></div>
       <div style={{ position: "sticky", bottom: 85, alignSelf: "flex-end", marginRight: 18, zIndex: 50 }}><button onClick={() => setIsWriting(true)} style={{ width: 56, height: 56, borderRadius: "50%", background: theme.main, border: "none", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 6px 16px rgba(107,91,82,0.3)", cursor: "pointer", transition: "transform 0.2s ease" }}><Pencil size={24} color={theme.white} style={{ transform: "translate(1px, -1px)" }} /></button></div>
       <div style={{ height: 92, flexShrink: 0 }}></div>
+
+      {activeCommentPost && (
+        <div style={{ position: "fixed", inset: 0, zIndex: 50, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)" }} onClick={() => setActiveCommentPost(null)} />
+          <div style={{ background: theme.white, borderRadius: "24px 24px 0 0", padding: "20px", position: "relative", zIndex: 51, animation: "fadeInUp 0.3s ease" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
+              <span style={{ fontWeight: 700, fontFamily: FONT_BODY, color: theme.main }}>댓글 달기</span>
+              <button onClick={() => setActiveCommentPost(null)} style={{ border: "none", background: "none", cursor: "pointer" }}><X size={20} color={theme.main}/></button>
+            </div>
+            <div style={{ display: "flex", gap: 10 }}>
+              <input type="text" value={commentText} onChange={e => setCommentText(e.target.value)} placeholder="댓글을 입력하세요..." style={{ flex: 1, padding: "12px 16px", borderRadius: 999, border: `1px solid ${theme.bg}`, outline: "none", fontFamily: FONT_BODY, fontSize: 14 }} />
+              <button onClick={handleAddComment} style={{ background: theme.main, color: theme.white, border: "none", padding: "0 20px", borderRadius: 999, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer" }}>등록</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -630,6 +599,40 @@ function MapScreen() {
   );
 }
 
+function AlbumScreen() {
+  const { theme, content, setContent, editMode } = useApp();
+  const [activeMonth, setActiveMonth] = useState(0);
+  const [building, setBuilding] = useState(false);
+
+  return (
+    <div style={{ paddingBottom: 92 }}>
+      <div style={{ background: theme.white, paddingBottom: 16, borderRadius: "0 0 24px 24px", boxShadow: "0 4px 16px rgba(107,91,82,0.04)", position: "relative", zIndex: 10 }}>
+        <div style={{ padding: "12px 0 16px" }}><Logo size={19} center /></div>
+        <div className="app-scroll" style={{ display: "flex", gap: 8, padding: "0 18px", overflowX: "auto" }}>
+          {content.albumMonths.map((m, i) => (
+            <button key={i} onClick={() => setActiveMonth(i)} style={{ flexShrink: 0, border: "none", cursor: "pointer", borderRadius: 999, padding: "7px 14px", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 700, background: activeMonth === i ? theme.main : theme.bg, color: activeMonth === i ? theme.white : theme.main }}>
+              <EditText value={m} editMode={editMode} onChange={(v) => setContent((c) => ({ ...c, albumMonths: c.albumMonths.map((mm, mi) => (mi === i ? v : mm)) }))} style={{}} />
+            </button>
+          ))}
+        </div>
+      </div>
+      <div style={{ position: "relative", padding: "12px 3px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 3 }}>
+          {content.albumPhotos.map((src, i) => (
+            <EditImage key={i} src={src} editMode={editMode} onChange={(url) => setContent((c) => ({ ...c, albumPhotos: c.albumPhotos.map((p, pi) => (pi === i ? url : p)) }))} style={{ width: "100%", aspectRatio: "1 / 1", borderRadius: 4 }} />
+          ))}
+        </div>
+        <div style={{ position: "absolute", left: "10%", right: "10%", top: "42%", display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+          <ChevronDown size={16} color={theme.white} style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.3))" }} />
+          <button onClick={() => { setBuilding(true); setTimeout(() => setBuilding(false), 1600); }} style={{ border: "none", cursor: "pointer", borderRadius: 999, padding: "10px 22px", background: "rgba(168,183,161,0.95)", color: theme.white, fontFamily: FONT_BODY, fontWeight: 700, fontSize: 13, display: "flex", alignItems: "center", gap: 6, boxShadow: "0 4px 14px rgba(0,0,0,0.15)" }}>
+            <Sparkles size={14} /> {building ? "만드는 중..." : "AI 앨범 제작하기"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function SettingsScreen() {
   const { theme, setScreen } = useApp();
   return (
@@ -671,14 +674,17 @@ function BottomNav() {
   );
 }
 
-const SCREENS = { splash: SplashScreen, feed: FeedScreen, profile: ProfileScreen, category: CategoryScreen, map: MapScreen, settings: SettingsScreen };
+const SCREENS = { splash: SplashScreen, feed: FeedScreen, profile: ProfileScreen, category: CategoryScreen, map: MapScreen, settings: SettingsScreen, album: AlbumScreen };
 
 function PhoneShell() {
   const { theme, screen } = useApp();
   const Screen = SCREENS[screen];
+  
+  // URL에 ?mockup=true 가 붙어있는지 확인하여 구조를 결정합니다.
+  const isMockup = new URLSearchParams(window.location.search).get("mockup") === "true";
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "100%", background: "transparent" }}>
+    <div style={{ position: "relative", width: isMockup ? "100%" : "100vw", height: isMockup ? "100%" : "100dvh", background: theme.bg, overflow: "hidden" }}>
       <div className="app-scroll" style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, overflowY: screen === "splash" || screen === "map" ? "hidden" : "auto" }}>
         <Screen />
       </div>
@@ -697,9 +703,15 @@ export default function NuzzleApp() {
     setTheme(DEFAULT_THEME); setContent(DEFAULT_CONTENT); setScreen("splash"); setEditMode(false);
   };
 
+  const isMockup = new URLSearchParams(window.location.search).get("mockup") === "true";
+
   return (
     <AppCtx.Provider value={{ theme, setTheme, content, setContent, editMode, setEditMode, screen, setScreen, resetAll }}>
-      <div style={{ minHeight: "100vh", background: "#efe6d8", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "32px 12px", fontFamily: FONT_BODY }}>
+      <div style={
+        isMockup 
+        ? { minHeight: "100vh", background: "#efe6d8", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "32px 12px", fontFamily: FONT_BODY }
+        : { width: "100vw", height: "100dvh", margin: 0, padding: 0, fontFamily: FONT_BODY }
+      }>
         <style>{`
           @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
           @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
@@ -714,19 +726,21 @@ export default function NuzzleApp() {
           @keyframes pulse { 0% { transform: scale(0.6); opacity: 1; } 100% { transform: scale(1.6); opacity: 0; } }
         `}</style>
         
-        {/* 무조건 예쁜 아이폰 프레임(목업)이 뜨도록 고정 */}
-        <div style={{ width: 375, height: 780, background: "#1c1a19", borderRadius: 46, padding: 12, boxShadow: "0 30px 60px rgba(0,0,0,0.25)", position: "relative" }}>
-          <div style={{ position: "relative", width: "100%", height: "100%", background: theme.bg, borderRadius: 34, overflow: "hidden" }}>
-            <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: 120, height: 26, background: "#1c1a19", borderRadius: "0 0 16px 16px", zIndex: 30 }} />
-            <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 44, background: screen === "splash" ? theme.bg : theme.white, zIndex: 25, borderRadius: "34px 34px 0 0" }}>
-              <StatusBar />
-            </div>
-            <div style={{ position: "absolute", top: 44, left: 0, right: 0, bottom: 0 }}>
-              <PhoneShell />
+        {isMockup ? (
+          <div style={{ width: 375, height: 780, background: "#1c1a19", borderRadius: 46, padding: 12, boxShadow: "0 30px 60px rgba(0,0,0,0.25)", position: "relative" }}>
+            <div style={{ position: "relative", width: "100%", height: "100%", background: theme.bg, borderRadius: 34, overflow: "hidden" }}>
+              <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: 120, height: 26, background: "#1c1a19", borderRadius: "0 0 16px 16px", zIndex: 30 }} />
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 44, background: screen === "splash" ? theme.bg : theme.white, zIndex: 25, borderRadius: "34px 34px 0 0" }}>
+                <StatusBar />
+              </div>
+              <div style={{ position: "absolute", top: 44, left: 0, right: 0, bottom: 0 }}>
+                <PhoneShell />
+              </div>
             </div>
           </div>
-        </div>
-
+        ) : (
+          <PhoneShell />
+        )}
       </div>
     </AppCtx.Provider>
   );
