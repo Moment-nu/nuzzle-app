@@ -124,7 +124,7 @@ const DEFAULT_CONTENT = {
     { month: "Apr.", img: "https://picsum.photos/seed/nuzzle-tl-4/600/260" },
     { month: "Mar.", img: "https://picsum.photos/seed/nuzzle-tl-3/600/260" },
     { month: "Feb.", img: "https://picsum.photos/seed/nuzzle-tl-2/600/260" },
-    { month: "Jan.", img: "https://picsum.photos/seed/nuzzle-tl-1/600/260" },
+    { month: "Jan.", img: "https://i.postimg.cc/V51ZLjcZ/1wol.jpg" },
   ],
 };
 
