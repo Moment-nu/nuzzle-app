@@ -24,7 +24,7 @@ const ICONS = { Footprints, Stethoscope, Scissors, Cookie, Dumbbell, ShoppingBag
    Default content (서울숲 갤러리아포레 기준 스팟 & 전체 데이터 통합)
 --------------------------------------------- */
 const DEFAULT_CONTENT = {
-  tagline: "일상 속 친근한 연결",
+  tagline: "반려인을 잇다. 돌봄의 깊이를 더하다.",
   petName: "두부",
   petAvatar: "https://i.pinimg.com/736x/99/59/38/9959383ec0f61868d6933e80ec15f1b1.jpg",
   stories: [
