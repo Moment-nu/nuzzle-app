@@ -21,7 +21,7 @@ const DEFAULT_THEME = {
 const ICONS = { Footprints, Stethoscope, Scissors, Cookie, Dumbbell, ShoppingBag, PawPrint };
 
 /* ---------------------------------------------
-   Default content (서울숲 갤러리아포레 기준 스팟 & 전체 데이터 통합)
+   Default content (데이터 원복 및 확장)
 --------------------------------------------- */
 const DEFAULT_CONTENT = {
   tagline: "일상 속 친근한 연결",
@@ -45,8 +45,6 @@ const DEFAULT_CONTENT = {
     { id: 6, handle: "@cheese_tabby", avatar: "https://i.pinimg.com/1200x/35/c0/c0/35c0c07e5befff32632101157f40bcc7.jpg", photo: "https://i.pinimg.com/1200x/8c/0f/5a/8c0f5a06724a0a6e3eef9a9c93918116.jpg", caption: "캔 따는 소리는 기가 막히게 듣고 옴", likes: 421, comments: 55, hasLiked: false },
     { id: 7, handle: "@run_corgi", avatar: "https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg", photo: "https://i.pinimg.com/736x/72/50/e2/7250e2fbded6241d9a21883c9b1a8e57.jpg", caption: "짧은 다리로 열심히 뛰는 중 🏃‍♂️", likes: 210, comments: 12, hasLiked: false },
     { id: 8, handle: "@shiba_smile", avatar: "https://i.pinimg.com/1200x/43/2b/99/432b994b640c12376498b74e0776b976.jpg", photo: "https://i.pinimg.com/736x/3b/32/40/3b3240e6d21c815ae3c74a873d2569d4.jpg", caption: "간식 줄 때만 보여주는 자본주의 미소", likes: 512, comments: 88, hasLiked: false },
-    { id: 9, handle: "@black_bean", avatar: "https://i.pinimg.com/1200x/18/d8/8b/18d88ba6b3e6b34f3a0a667a1e3b5ff0.jpg", photo: "https://i.pinimg.com/1200x/32/cc/3d/32cc3d06e1a63e7c5f130bfec6aefcbf.jpg", caption: "박스만 보면 무조건 들어가야 직성이 풀림", likes: 118, comments: 5, hasLiked: false },
-    { id: 10, handle: "@bichon_cloud", avatar: "https://i.pinimg.com/736x/07/0a/4c/070a4c68083579a0f43d427e778d586d.jpg", photo: "https://i.pinimg.com/736x/06/ab/23/06ab23428f95079af047112ce5f772fb.jpg", caption: "미용하고 와서 솜사탕 됐어요 ☁️", likes: 675, comments: 102, hasLiked: false },
   ],
   categories: [
     { id: 1, label: "산책", icon: "Footprints" },
@@ -56,24 +54,24 @@ const DEFAULT_CONTENT = {
   ],
   communityPosts: [
     { id: 101, category: "산책", avatar: "https://i.pinimg.com/736x/79/6e/95/796e95e981e632f1bb672c357b0b6077.jpg", nickname: "dubu_nu", photo: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80", caption: "장마철 산책 대체 어떻게들 하세요? 실내 활동 추천 부탁드려요. 비오니까 애가 너무 우울해하네요 ㅠㅠ", likes: 41, comments: 17, hasLiked: false },
-    { id: 102, category: "산책", avatar: "https://i.pinimg.com/736x/97/dd/bd/97ddbd79b3fc4e250884917c61d61dd0.jpg", nickname: "choco_poodle", photo: "https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&q=80", caption: "서울숲 강아지 산책 다녀왔어요! 새로 사귄 친구들이랑 잔디밭에서 엄청 뛰어놀았습니다.", likes: 120, comments: 24, hasLiked: false },
-    { id: 103, category: "산책", avatar: "https://i.pinimg.com/736x/4f/89/c9/4f89c91ee8755ceba302bcf8b89e1127.jpg", nickname: "do_ber", photo: "https://images.unsplash.com/photo-1522276498395-f4f68f7f8454?w=600&q=80", caption: "역시 야간 산책이 최고죠. 서울숲 거울연못 쪽 선선해서 걷기 딱 좋네요.", likes: 88, comments: 12, hasLiked: false },
+    { id: 102, category: "산책", avatar: "https://i.pinimg.com/736x/97/dd/bd/97ddbd79b3fc4e250884917c61d61dd0.jpg", nickname: "choco_poodle", photo: "https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&q=80", caption: "한강공원 강아지 놀이터 다녀왔어요! 새로 사귄 친구들이랑 엄청 뛰어놀았습니다.", likes: 120, comments: 24, hasLiked: false },
+    { id: 103, category: "산책", avatar: "https://i.pinimg.com/736x/4f/89/c9/4f89c91ee8755ceba302bcf8b89e1127.jpg", nickname: "do_ber", photo: "https://images.unsplash.com/photo-1522276498395-f4f68f7f8454?w=600&q=80", caption: "여름엔 역시 야간 산책이죠. 선선해서 걷기 딱 좋네요.", likes: 88, comments: 12, hasLiked: false },
     { id: 104, category: "산책", avatar: "https://i.pinimg.com/1200x/bf/1d/e3/bf1de3443a7836b64eaef691fe546789.jpg", nickname: "haru_and_me", photo: "https://images.unsplash.com/photo-1537151608804-ea6f1184aca9?w=600&q=80", caption: "산책하다가 만난 길고양이한테 시선 뺏긴 하루 ㅋㅋ", likes: 215, comments: 31, hasLiked: false },
     { id: 105, category: "산책", avatar: "https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg", nickname: "run_corgi", photo: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&q=80", caption: "새로 산 하네스 개시! 색깔 완전 찰떡이지 않나요?", likes: 142, comments: 18, hasLiked: false },
-    { id: 106, category: "산책", avatar: "https://i.pinimg.com/1200x/43/2b/99/432b994b640c12376498b74e0776b976.jpg", nickname: "shiba_smile", photo: "https://images.unsplash.com/photo-1544568100-847a948585b9?w=600&q=80", caption: "집에 안 간다고 버티기 시전 중... 10분째 대치 상태입니다.", likes: 350, comments: 55, hasLiked: false },
+    { id: 106, category: "산책", avatar: "https://i.pinimg.com/1200x/43/2b/99/432b994b640c12376498b74e0776b976.jpg", nickname: "shiba_smile", photo: "https://images.unsplash.com/photo-1544568100-847a948585b9?w=600&q=80", caption: "안 간다고 버티기 시전 중... 10분째 대치 상태입니다.", likes: 350, comments: 55, hasLiked: false },
     
     { id: 201, category: "병원", avatar: "https://i.pinimg.com/736x/ac/c0/78/acc078e056812cf937c3f4cf7cabfeaf.jpg", nickname: "nuzzle_w", photo: "https://images.unsplash.com/photo-1584815682414-7cf6b142eb3c?w=600&q=80", caption: "중성화 수술 후 회복 기간 얼마나 걸렸는지 여쭤봐도 될까요? 넥카라를 너무 불편해해서 걱정입니다.", likes: 24, comments: 9, hasLiked: false },
     { id: 202, category: "병원", avatar: "https://i.pinimg.com/736x/c6/f0/6c/c6f06c9127c5fb0818b8fa271bba6299.jpg", nickname: "golden_boy", photo: "https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?w=600&q=80", caption: "심장사상충 약 먹이는 꿀팁 공유합니다. 간식 사이에 숨겨서 주는 게 최고네요.", likes: 110, comments: 22, hasLiked: false },
     { id: 203, category: "병원", avatar: "https://i.pinimg.com/1200x/35/c0/c0/35c0c07e5befff32632101157f40bcc7.jpg", nickname: "cheese_tabby", photo: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80", caption: "종합백신 맞으러 왔는데 긴장해서 숨어있는 중 ㅠㅠ", likes: 85, comments: 14, hasLiked: false },
     { id: 204, category: "병원", avatar: "https://i.pinimg.com/1200x/18/d8/8b/18d88ba6b3e6b34f3a0a667a1e3b5ff0.jpg", nickname: "black_bean", photo: "https://images.unsplash.com/photo-1599839619722-39751411ea63?w=600&q=80", caption: "건강검진 결과 다행히 아주 건강하대요! 다이어트만 조금 하라고 하시네요 ㅎㅎ", likes: 230, comments: 40, hasLiked: false },
     { id: 205, category: "병원", avatar: "https://i.pinimg.com/736x/07/0a/4c/070a4c68083579a0f43d427e778d586d.jpg", nickname: "bichon_cloud", photo: "https://images.unsplash.com/photo-1554692928-dfa2c262d512?w=600&q=80", caption: "슬개골 탈구 의심돼서 엑스레이 찍고 왔어요. 아직 1기라 관리만 잘해주면 된대요.", likes: 95, comments: 16, hasLiked: false },
-    { id: 206, category: "병원", avatar: "https://i.pinimg.com/736x/59/1b/b5/591bb59e86fe5178c2f22126230cfb0c.jpg", nickname: "meow_life", photo: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80", caption: "성수동 고양이 친화 진료실 너무 좋네요. 대기실부터 분리되어 있어서 안심입니다.", likes: 160, comments: 25, hasLiked: false },
+    { id: 206, category: "병원", avatar: "https://i.pinimg.com/736x/59/1b/b5/591bb59e86fe5178c2f22126230cfb0c.jpg", nickname: "meow_life", photo: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80", caption: "동물병원 친화 진료실 너무 좋네요. 대기실부터 분리되어 있어서 안심입니다.", likes: 160, comments: 25, hasLiked: false },
 
     { id: 301, category: "간식", avatar: "https://i.pinimg.com/736x/59/1b/b5/591bb59e86fe5178c2f22126230cfb0c.jpg", nickname: "boder_col", photo: "https://images.unsplash.com/photo-1582562124811-c09040d0a907?w=600&q=80", caption: "수제 간식 처음 만들어봤는데 애가 안 먹네요... 닭가슴살 져키 레시피 꿀팁 있으신 분?", likes: 15, comments: 5, hasLiked: false },
     { id: 302, category: "간식", avatar: "https://i.pinimg.com/736x/97/dd/bd/97ddbd79b3fc4e250884917c61d61dd0.jpg", nickname: "choco_poodle", photo: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&q=80", caption: "요즘 유행하는 동결건조 간식 사봤는데 기호성 대박이에요!", likes: 145, comments: 22, hasLiked: false },
-    { id: 303, category: "간식", avatar: "https://i.pinimg.com/736x/4f/89/c9/4f89c91ee8755ceba302bcf8b89e1127.jpg", nickname: "do_ber", photo: "https://images.unsplash.com/photo-1522276498395-f4f68f7f8454?w=600&q=80", caption: "펫밀크 살짝 얼려서 주는 게 최고죠. 아이스크림처럼 핥아먹어요.", likes: 210, comments: 33, hasLiked: false },
+    { id: 303, category: "간식", avatar: "https://i.pinimg.com/736x/4f/89/c9/4f89c91ee8755ceba302bcf8b89e1127.jpg", nickname: "do_ber", photo: "https://images.unsplash.com/photo-1522276498395-f4f68f7f8454?w=600&q=80", caption: "더운 여름엔 펫밀크 얼려서 주는 게 최고죠. 아이스크림처럼 핥아먹어요.", likes: 210, comments: 33, hasLiked: false },
     { id: 304, category: "간식", avatar: "https://i.pinimg.com/1200x/bf/1d/e3/bf1de3443a7836b64eaef691fe546789.jpg", nickname: "haru_and_me", photo: "https://images.unsplash.com/photo-1537151608804-ea6f1184aca9?w=600&q=80", caption: "츄르 봉지만 바스락거려도 자다가 튀어나오는 매직", likes: 380, comments: 45, hasLiked: false },
-    { id: 305, category: "간식", avatar: "https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg", nickname: "run_corgi", photo: "https://images.unsplash.com/photo-1544568100-847a948585b9?w=600&q=80", caption: "서울숲 카페에서 강아지 전용 멍푸치노 먹방 ☕️ 입가에 거품 묻은 거 너무 귀여워요.", likes: 195, comments: 28, hasLiked: false },
+    { id: 305, category: "간식", avatar: "https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg", nickname: "run_corgi", photo: "https://images.unsplash.com/photo-1544568100-847a948585b9?w=600&q=80", caption: "강아지 전용 멍푸치노 먹방 ☕️ 입가에 거품 묻은 거 너무 귀여워요.", likes: 195, comments: 28, hasLiked: false },
     { id: 306, category: "간식", avatar: "https://i.pinimg.com/1200x/43/2b/99/432b994b640c12376498b74e0776b976.jpg", nickname: "shiba_smile", photo: "https://images.unsplash.com/photo-1517849845537-4d257902454a?w=600&q=80", caption: "다이어트 중이라 양배추 간식으로 대체했는데 생각보다 잘 먹네요?", likes: 75, comments: 10, hasLiked: false },
 
     { id: 401, category: "용품", avatar: "https://i.pinimg.com/1200x/18/d8/8b/18d88ba6b3e6b34f3a0a667a1e3b5ff0.jpg", nickname: "black_bean", photo: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=600&q=80", caption: "새로 산 캣타워 조립 완료! 다행히 박스보다 캣타워를 더 좋아해주네요.", likes: 250, comments: 38, hasLiked: false },
@@ -81,23 +79,19 @@ const DEFAULT_CONTENT = {
     { id: 403, category: "용품", avatar: "https://i.pinimg.com/736x/ac/c0/78/acc078e056812cf937c3f4cf7cabfeaf.jpg", nickname: "nuzzle_w", photo: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80", caption: "자동 급식기 쓰시는 분들 어떤 브랜드 쓰시나요? 와이파이 연결 잘 되는 걸로 찾고 있어요.", likes: 45, comments: 19, hasLiked: false },
     { id: 404, category: "용품", avatar: "https://i.pinimg.com/736x/c6/f0/6c/c6f06c9127c5fb0818b8fa271bba6299.jpg", nickname: "golden_boy", photo: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&q=80", caption: "강아지 카시트 바꿨는데 엄청 안정감 있네요. 드라이브 갈 맛 납니다.", likes: 180, comments: 26, hasLiked: false },
     { id: 405, category: "용품", avatar: "https://i.pinimg.com/1200x/35/c0/c0/35c0c07e5befff32632101157f40bcc7.jpg", nickname: "cheese_tabby", photo: "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=600&q=80", caption: "먼지 없는 모래 찾다가 정착한 제품! 사막화도 덜하고 만족스럽습니다.", likes: 310, comments: 51, hasLiked: false },
-    { id: 406, category: "용품", avatar: "https://i.pinimg.com/736x/59/1b/b5/591bb59e86fe5178c2f22126230cfb0c.jpg", nickname: "meow_life", photo: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=600&q=80", caption: "포근한 방석 깔아줬더니 하루 종일 저기서만 자네요 ㅋㅋㅋ", likes: 135, comments: 17, hasLiked: false },
+    { id: 406, category: "용품", avatar: "https://i.pinimg.com/736x/59/1b/b5/591bb59e86fe5178c2f22126230cfb0c.jpg", nickname: "meow_life", photo: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=600&q=80", caption: "여름맞이 쿨매트 깔아줬더니 하루 종일 저기서만 자네요 ㅋㅋㅋ", likes: 135, comments: 17, hasLiked: false },
   ],
   spotCategories: ["산책로", "동물병원", "펫카페", "동반식당", "미용실"],
-  // 📍 서울숲2길 32-14 (갤러리아포레) 주변 실제 위치 비례 스팟 데이터
   spots: [
-    { id: 1, name: "서울숲 중앙잔디광장", tag: "산책로", desc: "성동구 뚝섬로 273 · 대형 잔디 산책 코스", top: "53%", left: "34%" },
-    { id: 2, name: "서울숲2길 아틀리에길", tag: "산책로", desc: "갤러리아포레 바로 옆 반려동물 동반 거리", top: "48%", left: "58%" },
-    { id: 3, name: "서울숲 가족마당 산책로", tag: "산책로", desc: "나무 그늘이 많아 산책하기 좋은 힐링 코스", top: "64%", left: "28%" },
-    { id: 4, name: "뚝섬한강공원 산책길", tag: "산책로", desc: "서울숲에서 한강으로 이어지는 강변 산책로", top: "78%", left: "56%" },
-    { id: 5, name: "서울숲 동물병원", tag: "동물병원", desc: "성동구 왕십리로 · 내과/외과 전문 진료", top: "34%", left: "62%" },
-    { id: 6, name: "24시 성수동물의료센터", tag: "동물병원", desc: "성수동 24시간 응급 진료 및 건강검진", top: "56%", left: "78%" },
-    { id: 7, name: "포레스트 펫 라운지", tag: "펫카페", desc: "서울숲2길 갤러리아포레 인근 애견 카페", top: "46%", left: "46%" },
-    { id: 8, name: "성수 하트독 라운지", tag: "펫카페", desc: "야외 루프탑과 프라이빗 룸이 있는 펫카페", top: "41%", left: "66%" },
-    { id: 9, name: "보마켓 서울숲점 (동반)", tag: "동반식당", desc: "서울숲포레스트 · 반려견 동반 브런치 맛집", top: "44%", left: "53%" },
-    { id: 10, name: "체다앤올리 서울숲", tag: "동반식당", desc: "서울숲 바로 앞 반려견 환영 샌드위치 카페", top: "55%", left: "63%" },
-    { id: 11, name: "살롱드몽 서울숲점", tag: "미용실", desc: "스트레스 없는 가위컷 전문 그루밍 샵", top: "37%", left: "48%" },
-    { id: 12, name: "디어퍼피 성수", tag: "미용실", desc: "천연 아로마 스파 & 맞춤 스타일링", top: "62%", left: "70%" },
+    { id: 1, name: "여의도 한강공원", tag: "산책로", top: "36%", left: "84%" },
+    { id: 2, name: "문래 창작촌 골목", tag: "산책로", top: "62%", left: "32%" },
+    { id: 3, name: "타임스퀘어 동물병원", tag: "동물병원", top: "56%", left: "44%" },
+    { id: 4, name: "선유도공원", tag: "산책로", top: "10%", left: "41%" },
+    { id: 5, name: "여의도공원", tag: "산책로", top: "42%", left: "67%" },
+    { id: 6, name: "카페 1953 위드오드리", tag: "동반식당", top: "64%", left: "23%" },
+    { id: 7, name: "러블리퍼피 당산", tag: "미용실", top: "40%", left: "36%" },
+    { id: 8, name: "24시 수동물의료센터", tag: "동물병원", top: "76%", left: "53%" },
+    { id: 9, name: "IFC몰 (애견동반)", tag: "산책로", top: "40%", left: "73%" },
   ],
   albumMonths: ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sep.", "Oct."],
   albumPhotos: [
@@ -120,19 +114,17 @@ const DEFAULT_CONTENT = {
     "https://i.pinimg.com/736x/8e/4d/2c/8e4d2c81d78e77a06cc71fdfcc636440.jpg",
     "https://i.pinimg.com/736x/68/6c/24/686c24487159c9626e1ad92ffa231c25.jpg",
   ],
-  // 👇 프로필 좌측 상단 버튼 눌렀을 때 나오는 월별 대표 사진 (총 10개)
-  // 직접 추출하신 사진 주소(URL)를 아래 각 달의 img: "..." 따옴표 안에 붙여넣으시면 됩니다!
   timelinePhotos: [
-    { month: "Oct.", img: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80" }, // 👈 10월 대표 사진
-    { month: "Sep.", img: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=600&q=80" }, // 👈 9월 대표 사진
-    { month: "Aug.", img: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=600&q=80" }, // 👈 8월 대표 사진
-    { month: "Jul.", img: "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=600&q=80" }, // 👈 7월 대표 사진
-    { month: "Jun.", img: "https://images.unsplash.com/photo-1529778456725-dbea72ce3c53?w=600&q=80" }, // 👈 6월 대표 사진
-    { month: "May.", img: "https://images.unsplash.com/photo-1501820488136-72669149e0d4?w=600&q=80" }, // 👈 5월 대표 사진
-    { month: "Apr.", img: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=600&q=80" }, // 👈 4월 대표 사진
-    { month: "Mar.", img: "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=600&q=80" }, // 👈 3월 대표 사진
-    { month: "Feb.", img: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=600&q=80" }, // 👈 2월 대표 사진
-    { month: "Jan.", img: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&q=80" }, // 👈 1월 대표 사진
+    { month: "Oct.", img: "https://i.postimg.cc/Sjq1NWhm/10.jpg" },
+    { month: "Sep.", img: "https://i.postimg.cc/w3H4ThpH/9.jpg" },
+    { month: "Aug.", img: "https://i.postimg.cc/MXx3KySw/8.jpg" },
+    { month: "Jul.", img: "https://i.postimg.cc/7bDtYgkr/7.jpg" },
+    { month: "Jun.", img: "https://i.postimg.cc/rzcZFSk6/6.jpg" },
+    { month: "May.", img: "https://i.postimg.cc/jCK3dzrB/5.jpg" },
+    { month: "Apr.", img: "https://i.postimg.cc/V51ZLjcp/4.jpg" },
+    { month: "Mar.", img: "https://i.postimg.cc/bd8VNQjM/3.jpg" },
+    { month: "Feb.", img: "https://i.postimg.cc/hhgZP9q5/2.jpg" },
+    { month: "Jan.", img: "https://i.postimg.cc/V51ZLjcZ/1wol.jpg" },
   ],
 };
 
@@ -380,15 +372,7 @@ function ProfileScreen() {
         ) : (
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {content.timelinePhotos.map((t, i) => (
-              <div 
-                key={i} 
-                onClick={() => {
-                  const foundIdx = content.albumMonths.findIndex((m) => m === t.month);
-                  if (foundIdx !== -1) setMonthIdx(foundIdx);
-                  setView("grid");
-                }}
-                style={{ background: theme.white, borderRadius: 20, overflow: "hidden", boxShadow: "0 4px 12px rgba(107,91,82,0.03)", position: "relative", cursor: "pointer" }}
-              >
+              <div key={i} style={{ background: theme.white, borderRadius: 20, overflow: "hidden", boxShadow: "0 4px 12px rgba(107,91,82,0.03)", position: "relative" }}>
                 <EditImage src={t.img} editMode={editMode} onChange={(url) => setContent((c) => ({ ...c, timelinePhotos: c.timelinePhotos.map((tp, ti) => (ti === i ? { ...tp, img: url } : tp)) }))} style={{ width: "100%", height: 160 }} />
                 <span style={{ position: "absolute", top: 12, left: 12, background: theme.sage, color: theme.white, fontSize: 11.5, fontWeight: 700, fontFamily: FONT_BODY, padding: "4px 10px", borderRadius: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.15)" }}>{t.month}</span>
               </div>
@@ -404,7 +388,6 @@ function CategoryScreen() {
   const { theme, content, setContent, editMode } = useApp();
   const [activeCat, setActiveCat] = useState('all');
   const [isWriting, setIsWriting] = useState(false);
-  const [detailPost, setDetailPost] = useState(null);
   const [newPhoto, setNewPhoto] = useState("https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg");
   const [newCatLabel, setNewCatLabel] = useState(content.categories[0]?.label || "산책");
   const [newCaption, setNewCaption] = useState("");
@@ -417,17 +400,12 @@ function CategoryScreen() {
   
   const updatePost = (id, patch) => setContent((c) => ({ ...c, communityPosts: c.communityPosts.map((p) => (p.id === id ? { ...p, ...patch } : p)) }));
   
-  const toggleLike = (post, e) => {
-    if (e) e.stopPropagation();
+  const toggleLike = (post) => {
     const isLiked = post.hasLiked;
     updatePost(post.id, { hasLiked: !isLiked, likes: post.likes + (isLiked ? -1 : 1) });
-    if (detailPost && detailPost.id === post.id) {
-      setDetailPost({ ...detailPost, hasLiked: !isLiked, likes: detailPost.likes + (isLiked ? -1 : 1) });
-    }
   };
 
-  const handleShare = (post, e) => {
-    if (e) e.stopPropagation();
+  const handleShare = (post) => {
     if (navigator.share) navigator.share({ title: 'nuzzle', text: post.caption, url: post.photo }).catch(()=>{});
     else alert("공유 링크가 클립보드에 복사되었습니다.");
   };
@@ -436,9 +414,6 @@ function CategoryScreen() {
     if (!commentText.trim()) return;
     const post = content.communityPosts.find(p => p.id === activeCommentPost);
     updatePost(activeCommentPost, { comments: post.comments + 1 });
-    if (detailPost && detailPost.id === activeCommentPost) {
-      setDetailPost({ ...detailPost, comments: detailPost.comments + 1 });
-    }
     setCommentText(""); alert("댓글이 등록되었습니다."); 
   };
 
@@ -485,57 +460,7 @@ function CategoryScreen() {
     );
   }
 
-  // 게시물 클릭 시 확대 디테일 페이지
-  if (detailPost) {
-    return (
-      <div style={{ display: "flex", flexDirection: "column", height: "100%", background: theme.white, animation: "fadeInUp 0.2s ease" }}>
-        <div style={{ display: "flex", alignItems: "center", padding: "16px 18px", borderBottom: `1px solid ${theme.bg}`, position: "sticky", top: 0, background: theme.white, zIndex: 10 }}>
-          <button onClick={() => setDetailPost(null)} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "flex" }}>
-            <ChevronLeft size={28} color={theme.main} />
-          </button>
-          <span style={{ flex: 1, textAlign: "center", fontSize: 16, fontWeight: 700, color: theme.main, marginRight: 28, fontFamily: FONT_BODY }}>{detailPost.category}</span>
-        </div>
-        <div className="app-scroll" style={{ flex: 1, overflowY: "auto", paddingBottom: 100 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "16px 18px 12px" }}>
-            <EditImage src={detailPost.avatar} editMode={editMode} onChange={(url) => updatePost(detailPost.id, { avatar: url })} style={{ width: 34, height: 34, borderRadius: "50%" }} />
-            <EditText value={detailPost.nickname} editMode={editMode} onChange={(v) => updatePost(detailPost.id, { nickname: v })} style={{ fontSize: 13.5, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }} />
-          </div>
-          <EditImage src={detailPost.photo} editMode={editMode} onChange={(url) => updatePost(detailPost.id, { photo: url })} style={{ width: "100%", aspectRatio: "1 / 1.1" }} />
-          <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "12px 18px 6px" }}>
-            <span style={{ display: "flex", alignItems: "center", gap: 4, cursor: "pointer" }} onClick={(e) => toggleLike(detailPost, e)}>
-              <Heart size={21} fill={detailPost.hasLiked ? theme.soft : "none"} color={detailPost.hasLiked ? theme.soft : theme.sub} strokeWidth={2} />
-              <span style={{ fontSize: 13, color: theme.main, fontWeight: 500 }}>{detailPost.likes}</span>
-            </span>
-            <span style={{ display: "flex", alignItems: "center", gap: 4, cursor: "pointer" }} onClick={() => setActiveCommentPost(detailPost.id)}>
-              <MessageCircle size={21} color={theme.sub} strokeWidth={2} />
-              <span style={{ fontSize: 13, color: theme.main, fontWeight: 500 }}>{detailPost.comments}</span>
-            </span>
-            <Share2 size={19} color={theme.sub} strokeWidth={2} cursor="pointer" onClick={(e) => handleShare(detailPost, e)} />
-          </div>
-          <div style={{ padding: "6px 18px 24px" }}>
-            <EditText value={detailPost.caption} editMode={editMode} onChange={(v) => updatePost(detailPost.id, { caption: v })} style={{ fontSize: 14, color: theme.main, fontFamily: FONT_BODY, lineHeight: 1.6 }} />
-          </div>
-        </div>
-        {activeCommentPost && (
-          <div style={{ position: "fixed", inset: 0, zIndex: 50, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-            <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)" }} onClick={() => setActiveCommentPost(null)} />
-            <div style={{ background: theme.white, borderRadius: "24px 24px 0 0", padding: "20px", position: "relative", zIndex: 51, animation: "fadeInUp 0.3s ease" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
-                <span style={{ fontWeight: 700, fontFamily: FONT_BODY, color: theme.main }}>댓글 달기</span>
-                <button onClick={() => setActiveCommentPost(null)} style={{ border: "none", background: "none", cursor: "pointer" }}><X size={20} color={theme.main}/></button>
-              </div>
-              <div style={{ display: "flex", gap: 10 }}>
-                <input type="text" value={commentText} onChange={e => setCommentText(e.target.value)} placeholder="댓글을 입력하세요..." style={{ flex: 1, padding: "12px 16px", borderRadius: 999, border: `1px solid ${theme.bg}`, outline: "none", fontFamily: FONT_BODY, fontSize: 14 }} />
-                <button onClick={handleAddComment} style={{ background: theme.main, color: theme.white, border: "none", padding: "0 20px", borderRadius: 999, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer" }}>등록</button>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  // 기존 세로형 커뮤니티 피드 포맷 유지
+  // 원래의 세로형 피드 포맷으로 원복
   return (
     <div style={{ display: "flex", flexDirection: "column", minHeight: "100%" }}>
       <div style={{ background: theme.white, padding: "16px 18px 12px" }}>
@@ -563,7 +488,7 @@ function CategoryScreen() {
             const postCatData = content.categories.find(c => c.label === p.category);
             const BadgeIcon = postCatData ? (ICONS[postCatData.icon] || PawPrint) : PawPrint;
             return (
-              <div key={p.id} onClick={() => !editMode && setDetailPost(p)} style={{ background: theme.white, borderRadius: 20, paddingBottom: 16, boxShadow: "0 4px 12px rgba(107,91,82,0.03)", animation: "fadeInUp 0.3s ease", overflow: "hidden", cursor: "pointer" }}>
+              <div key={p.id} style={{ background: theme.white, borderRadius: 20, paddingBottom: 16, boxShadow: "0 4px 12px rgba(107,91,82,0.03)", animation: "fadeInUp 0.3s ease", overflow: "hidden" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "16px 18px 12px" }}>
                   <EditImage src={p.avatar} editMode={editMode} onChange={(url) => updatePost(p.id, { avatar: url })} style={{ width: 34, height: 34, borderRadius: "50%" }} />
                   <EditText value={p.nickname} editMode={editMode} onChange={(v) => updatePost(p.id, { nickname: v })} style={{ fontSize: 13.5, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }} />
@@ -571,11 +496,7 @@ function CategoryScreen() {
                 </div>
                 <div style={{ position: "relative" }}>
                   <EditImage src={p.photo} editMode={editMode} onChange={(url) => updatePost(p.id, { photo: url })} style={{ width: "100%", height: 180 }} />
-                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "rgba(107,91,82,0.85)", padding: "10px 0", display: "flex", justifyContent: "center", gap: 24 }}>
-                    <span onClick={(e) => toggleLike(p, e)} style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500, cursor: "pointer" }}><Heart size={15} fill={p.hasLiked ? "#fff" : "none"} color="#fff" /> {p.likes}</span>
-                    <span onClick={(e) => { e.stopPropagation(); setActiveCommentPost(p.id); }} style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500, cursor: "pointer" }}><MessageCircle size={15} /> {p.comments}</span>
-                    <span onClick={(e) => handleShare(p, e)} style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500, cursor: "pointer" }}><Share2 size={15} /></span>
-                  </div>
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "rgba(107,91,82,0.85)", padding: "10px 0", display: "flex", justifyContent: "center", gap: 24 }}><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><Heart size={15} fill={p.hasLiked ? "#fff" : "none"} color="#fff" /> {p.likes}</span><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><MessageCircle size={15} /> {p.comments}</span><span style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500 }}><Share2 size={15} /></span></div>
                 </div>
                 <div style={{ padding: "14px 18px 0" }}><EditText value={p.caption} editMode={editMode} onChange={(v) => updatePost(p.id, { caption: v })} style={{ fontSize: 13, color: theme.main, fontFamily: FONT_BODY, lineHeight: 1.6 }} /></div>
               </div>
@@ -588,30 +509,9 @@ function CategoryScreen() {
       <div style={{ flex: 1 }}></div>
       <div style={{ position: "sticky", bottom: 85, alignSelf: "flex-end", marginRight: 18, zIndex: 50 }}><button onClick={() => setIsWriting(true)} style={{ width: 56, height: 56, borderRadius: "50%", background: theme.main, border: "none", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 6px 16px rgba(107,91,82,0.3)", cursor: "pointer", transition: "transform 0.2s ease" }}><Pencil size={24} color={theme.white} style={{ transform: "translate(1px, -1px)" }} /></button></div>
       <div style={{ height: 92, flexShrink: 0 }}></div>
-
-      {activeCommentPost && (
-        <div style={{ position: "fixed", inset: 0, zIndex: 50, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)" }} onClick={() => setActiveCommentPost(null)} />
-          <div style={{ background: theme.white, borderRadius: "24px 24px 0 0", padding: "20px", position: "relative", zIndex: 51, animation: "fadeInUp 0.3s ease" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
-              <span style={{ fontWeight: 700, fontFamily: FONT_BODY, color: theme.main }}>댓글 달기</span>
-              <button onClick={() => setActiveCommentPost(null)} style={{ border: "none", background: "none", cursor: "pointer" }}><X size={20} color={theme.main}/></button>
-            </div>
-            <div style={{ display: "flex", gap: 10 }}>
-              <input type="text" value={commentText} onChange={e => setCommentText(e.target.value)} placeholder="댓글을 입력하세요..." style={{ flex: 1, padding: "12px 16px", borderRadius: 999, border: `1px solid ${theme.bg}`, outline: "none", fontFamily: FONT_BODY, fontSize: 14 }} />
-              <button onClick={handleAddComment} style={{ background: theme.main, color: theme.white, border: "none", padding: "0 20px", borderRadius: 999, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer" }}>등록</button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
-
-/* ---------------------------------------------
-   Map / spot (서울숲2길 32-14 갤러리아포레 기준 + 실제 GPS 연동)
---------------------------------------------- */
-const VENUE_COORDS = { lat: 37.5455, lon: 127.0425 }; // 서울숲2길 32-14 갤러리아포레 기준 좌표
 
 function MapScreen() {
   const { theme, content, setContent, editMode } = useApp();
@@ -620,41 +520,8 @@ function MapScreen() {
   const [searchQuery, setSearchQuery] = useState("");
   const [showLocation, setShowLocation] = useState(false);
   const [activeCategory, setActiveCategory] = useState(null);
-  const [coords, setCoords] = useState(VENUE_COORDS);
-  const [locating, setLocating] = useState(false);
 
   const activeCategoryLabel = activeCategory !== null ? content.spotCategories[activeCategory] : null;
-
-  // 현재 중심 좌표를 기준으로 OpenStreetMap 범위(bbox) 계산
-  const bbox = `${(coords.lon - 0.009).toFixed(4)},${(coords.lat - 0.0065).toFixed(4)},${(coords.lon + 0.009).toFixed(4)},${(coords.lat + 0.0065).toFixed(4)}`;
-
-  // 내 위치 버튼 클릭 시 실제 스마트폰 GPS 호출
-  const handleLocateClick = () => {
-    if (showLocation) {
-      setShowLocation(false);
-      return;
-    }
-    if (!navigator.geolocation) {
-      setCoords(VENUE_COORDS);
-      setShowLocation(true);
-      return;
-    }
-    setLocating(true);
-    navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        setCoords({ lat: pos.coords.latitude, lon: pos.coords.longitude });
-        setShowLocation(true);
-        setLocating(false);
-      },
-      () => {
-        // 실내 전시장 GPS 음영지역이거나 권한 거부 시 갤러리아포레 위치로 자연스럽게 폴백
-        setCoords(VENUE_COORDS);
-        setShowLocation(true);
-        setLocating(false);
-      },
-      { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
-    );
-  };
 
   return (
     <div style={{ height: "100%", display: "flex", flexDirection: "column", position: "relative" }}>
@@ -672,42 +539,28 @@ function MapScreen() {
           })}
         </div>
       </div>
-
       {isSearchOpen && (
-        <div style={{ position: "absolute", top: 85, left: 18, right: 18, background: "#ffffff", borderRadius: 16, padding: "14px 16px", display: "flex", alignItems: "center", zIndex: 30, boxShadow: "0 6px 16px rgba(0,0,0,0.1)", animation: "fadeInDown 0.2s ease" }}>
-          <Search size={22} color={theme.sub} />
-          <input type="text" placeholder="서울숲·성수동 장소를 검색해보세요" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} style={{ flex: 1, border: "none", outline: "none", marginLeft: 10, fontSize: 14, fontFamily: FONT_BODY, color: theme.main, background: "transparent" }} />
-          <button onClick={() => { setIsSearchOpen(false); setSearchQuery(""); }} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "flex" }}><X size={22} color={theme.sub} /></button>
+        <div style={{ position: "absolute", top: 85, left: 18, right: 18, background: "#ffffff", borderRadius: 16, padding: "20px 18px", display: "flex", alignItems: "center", zIndex: 30, boxShadow: "0 6px 16px rgba(0,0,0,0.1)", animation: "fadeInDown 0.2s ease" }}>
+          <Search size={32} color={theme.sub} />
+          <input type="text" placeholder="장소를 검색해보세요" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} style={{ flex: 1, border: "none", outline: "none", marginLeft: 12, fontSize: 16, fontFamily: FONT_BODY, color: theme.main, background: "transparent" }} />
+          <button onClick={() => { setIsSearchOpen(false); setSearchQuery(""); }} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "flex" }}><X size={32} color={theme.sub} /></button>
         </div>
       )}
-
       <div style={{ position: "absolute", inset: 0, overflow: "hidden", background: "#e8e4db" }}>
-        <iframe title="Seoul Forest Galleria Foret Map" width="100%" height="100%" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src={`https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik`} style={{ position: "absolute", inset: 0, filter: "grayscale(80%) sepia(30%) opacity(0.7) contrast(1.1)", pointerEvents: "none" }} />
+        <iframe title="Yeongdeungpo Map" width="100%" height="100%" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=126.8700,37.4950,126.9450,37.5450&layer=mapnik" style={{ position: "absolute", inset: 0, filter: "grayscale(80%) sepia(30%) opacity(0.7) contrast(1.1)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 100, background: `linear-gradient(to bottom, ${theme.bg}dd, transparent)`, zIndex: 1, pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 150, background: `linear-gradient(to top, ${theme.bg}f2, transparent)`, zIndex: 1, pointerEvents: "none" }} />
-
-        {/* 현재 위치 활성화 시 상단 배지 & 중앙 마커 표시 */}
         {showLocation && (
-          <>
-            <div style={{ position: "absolute", top: 108, left: "50%", transform: "translateX(-50%)", background: "rgba(107,91,82,0.92)", color: "#fff", padding: "6px 14px", borderRadius: 999, fontSize: 11.5, fontWeight: 600, fontFamily: FONT_BODY, zIndex: 15, boxShadow: "0 4px 12px rgba(0,0,0,0.15)", whiteSpace: "nowrap", animation: "fadeInDown 0.25s ease" }}>
-              📍 현위치: 성동구 서울숲2길 32-14 (갤러리아포레)
-            </div>
-            <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 6, pointerEvents: "none" }}>
-              <div style={{ width: 15, height: 15, background: "#ff4b4b", borderRadius: "50%", border: "2.5px solid #fff", boxShadow: "0 2px 6px rgba(0,0,0,0.3)", position: "relative" }}>
-                <div style={{ position: "absolute", inset: -10, borderRadius: "50%", background: "rgba(255, 75, 75, 0.4)", animation: "pulse 1.5s infinite" }} />
-              </div>
-            </div>
-          </>
+          <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 6, pointerEvents: "none" }}>
+            <div style={{ width: 14, height: 14, background: "#ff4b4b", borderRadius: "50%", border: "2px solid #fff", boxShadow: "0 2px 6px rgba(0,0,0,0.3)", position: "relative" }}><div style={{ position: "absolute", inset: -10, borderRadius: "50%", background: "rgba(255, 75, 75, 0.4)", animation: "pulse 1.5s infinite" }} /></div>
+          </div>
         )}
-
         <div style={{ position: "absolute", inset: 0, zIndex: 5 }}>
           {content.spots.map((s) => {
-            const matchesCat = activeCategoryLabel === null || s.tag === activeCategoryLabel;
-            const matchesSearch = !searchQuery.trim() || s.name.includes(searchQuery.trim()) || s.tag.includes(searchQuery.trim());
-            const isMatched = matchesCat && matchesSearch;
+            const isMatched = activeCategoryLabel === null || s.tag === activeCategoryLabel;
             const isSelected = selected?.id === s.id;
             return (
-              <button key={s.id} onClick={() => setSelected(isSelected ? null : s)} style={{ position: "absolute", top: s.top, left: s.left, transform: `translate(-50%,-100%) scale(${isMatched ? 1 : 0.85})`, opacity: isMatched ? 1 : 0.25, pointerEvents: isMatched ? "auto" : "none", border: "none", background: "none", cursor: "pointer", zIndex: isSelected ? 10 : (isMatched ? 5 : 4), transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)" }}>
+              <button key={s.id} onClick={() => setSelected(isSelected ? null : s)} style={{ position: "absolute", top: s.top, left: s.left, transform: `translate(-50%,-100%) scale(${isMatched ? 1 : 0.85})`, opacity: isMatched ? 1 : 0.3, pointerEvents: isMatched ? "auto" : "none", border: "none", background: "none", cursor: "pointer", zIndex: isSelected ? 10 : (isMatched ? 5 : 4), transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)" }}>
                 <div style={{ width: isSelected ? 40 : 30, height: isSelected ? 40 : 30, borderRadius: "50% 50% 50% 0", transform: "rotate(-45deg)", background: isSelected ? theme.main : theme.soft, display: "flex", alignItems: "center", justifyContent: "center", boxShadow: isSelected ? "0 6px 14px rgba(0,0,0,0.4)" : "0 4px 10px rgba(0,0,0,0.25)", transition: "all 0.3s ease" }}>
                   <MapPin size={isSelected ? 18 : 14} color={theme.white} style={{ transform: "rotate(45deg)", transition: "all 0.3s ease" }} strokeWidth={2.5} />
                 </div>
@@ -715,19 +568,17 @@ function MapScreen() {
             )
           })}
         </div>
-
         {selected && (
           <div style={{ position: "absolute", left: 18, right: 18, bottom: 85, background: theme.white, borderRadius: 16, padding: "14px 16px", display: "flex", alignItems: "center", gap: 12, boxShadow: "0 8px 24px rgba(107,91,82,0.15)", zIndex: 10, animation: "fadeInUp 0.3s ease" }}>
-            <div style={{ width: 40, height: 40, borderRadius: "50%", background: `${theme.soft}20`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><MapPin size={20} color={theme.soft} strokeWidth={2.5} /></div>
+            <div style={{ width: 40, height: 40, borderRadius: "50%", background: `${theme.soft}20`, display: "flex", alignItems: "center", justifyContent: "center" }}><MapPin size={20} color={theme.soft} strokeWidth={2.5} /></div>
             <div style={{ flex: 1 }}>
               <EditText value={selected.name} editMode={editMode} onChange={(v) => { setContent((c) => ({ ...c, spots: c.spots.map((sp) => (sp.id === selected.id ? { ...sp, name: v } : sp)) })); setSelected((sel) => ({ ...sel, name: v })); }} style={{ fontSize: 14, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY, marginBottom: 2 }} />
-              <div style={{ fontSize: 11.5, color: theme.sub, fontFamily: FONT_BODY, fontWeight: 500 }}>{selected.tag} {selected.desc ? `· ${selected.desc}` : ""}</div>
+              <div style={{ fontSize: 11.5, color: theme.sub, fontFamily: FONT_BODY, fontWeight: 500 }}>{selected.tag}</div>
             </div>
-            <button onClick={() => alert(`[${selected.name}]\n분류: ${selected.tag}\n위치: 서울숲2길 갤러리아포레 인근 (${selected.desc || "반려동물 동반 가능"})`)} style={{ border: "none", background: theme.main, color: theme.white, padding: "8px 14px", borderRadius: 999, fontSize: 12, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer", flexShrink: 0 }}>상세보기</button>
+            <button style={{ border: "none", background: theme.main, color: theme.white, padding: "8px 14px", borderRadius: 999, fontSize: 12, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer" }}>상세보기</button>
           </div>
         )}
-
-        <button onClick={handleLocateClick} style={{ position: "absolute", right: 16, bottom: selected ? 185 : 85, width: 44, height: 44, borderRadius: "50%", background: showLocation ? theme.main : theme.white, border: "none", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 14px rgba(107,91,82,0.2)", cursor: "pointer", zIndex: 10, transition: "all 0.3s ease", opacity: locating ? 0.6 : 1 }}>
+        <button onClick={() => setShowLocation(!showLocation)} style={{ position: "absolute", right: 16, bottom: selected ? 185 : 85, width: 44, height: 44, borderRadius: "50%", background: showLocation ? theme.main : theme.white, border: "none", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 14px rgba(107,91,82,0.2)", cursor: "pointer", zIndex: 10, transition: "all 0.3s ease" }}>
           <LocateFixed size={20} color={showLocation ? theme.white : theme.main} strokeWidth={2.5} />
         </button>
       </div>
