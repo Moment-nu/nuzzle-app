@@ -364,6 +364,14 @@ function ProfileScreen() {
   const [monthIdx, setMonthIdx] = useState(0);
   const [isAddingPhoto, setIsAddingPhoto] = useState(false);
   const [newAlbumPhoto, setNewAlbumPhoto] = useState("https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80");
+  
+  // 캘린더 날짜 및 한줄 코멘트 상태
+  const [calYear, setCalYear] = useState(2026);
+  const [calMonth, setCalMonth] = useState(11);
+  const [selectedDay, setSelectedDay] = useState(12);
+  const [oneLineComment, setOneLineComment] = useState("");
+  const [photoNotes, setPhotoNotes] = useState({});
+  const [viewingPhoto, setViewingPhoto] = useState(null);
 
   const handleFileChange = (e) => {
     const file = e.target.files?.[0];
@@ -372,41 +380,159 @@ function ProfileScreen() {
     }
   };
 
+  const formattedDate = `${calYear}. ${String(calMonth).padStart(2, "0")}. ${String(selectedDay).padStart(2, "0")}`;
+
+  const handlePrevCalMonth = () => {
+    if (calMonth === 1) {
+      setCalYear((y) => y - 1);
+      setCalMonth(12);
+    } else {
+      setCalMonth((m) => m - 1);
+    }
+    setSelectedDay(1);
+  };
+
+  const handleNextCalMonth = () => {
+    if (calMonth === 12) {
+      setCalYear((y) => y + 1);
+      setCalMonth(1);
+    } else {
+      setCalMonth((m) => m + 1);
+    }
+    setSelectedDay(1);
+  };
+
+  const daysInMonth = new Date(calYear, calMonth, 0).getDate();
+  const firstDayOfWeek = new Date(calYear, calMonth - 1, 1).getDay();
+
   const handleAddPhotoSubmit = () => {
+    const photoToSave = newAlbumPhoto;
+    setPhotoNotes((prev) => ({
+      ...prev,
+      [photoToSave]: {
+        date: formattedDate,
+        comment: oneLineComment.trim() || "소중한 오늘의 기록 🐾",
+      },
+    }));
     setContent((c) => ({
       ...c,
-      albumPhotos: [c.albumPhotos[0], newAlbumPhoto, ...c.albumPhotos.slice(1)],
+      albumPhotos: [c.albumPhotos[0], photoToSave, ...c.albumPhotos.slice(1)],
     }));
+    setOneLineComment("");
     setIsAddingPhoto(false);
   };
 
   if (isAddingPhoto) {
     return (
       <div style={{ display: "flex", flexDirection: "column", height: "100%", background: theme.white, animation: "fadeInUp 0.25s ease" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 18px", borderBottom: `1px solid ${theme.bg}` }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 18px", borderBottom: `1px solid ${theme.bg}`, position: "sticky", top: 0, background: theme.white, zIndex: 10 }}>
           <button onClick={() => setIsAddingPhoto(false)} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "flex" }}>
             <X size={24} color={theme.main} />
           </button>
           <span style={{ fontSize: 15, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }}>새 앨범 사진</span>
           <button onClick={handleAddPhotoSubmit} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", fontSize: 15, fontWeight: 700, color: theme.soft, fontFamily: FONT_BODY }}>
-            추가
+            업로드
           </button>
         </div>
 
-        <div className="app-scroll" style={{ flex: 1, display: "flex", flexDirection: "column", padding: "20px 18px 100px", gap: 14 }}>
-          <label style={{ display: "block", width: "100%", aspectRatio: "1 / 1", borderRadius: 20, background: theme.bg, position: "relative", overflow: "hidden", cursor: "pointer" }}>
-            <img src={newAlbumPhoto} alt="새 앨범 사진" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            <div style={{ position: "absolute", bottom: 12, right: 12, padding: "8px 14px", borderRadius: 999, background: "rgba(0,0,0,0.6)", color: "#fff", fontSize: 12, fontWeight: 600, display: "flex", alignItems: "center", gap: 6 }}>
-              <Camera size={15} color="#fff" /> 사진첩에서 선택
-            </div>
+        <div className="app-scroll" style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column", padding: "18px 18px 110px", gap: 16 }}>
+          {/* 예시 사진 (우측 하단 카메라 아이콘 삭제 완료) */}
+          <label style={{ display: "block", width: "100%", aspectRatio: "1 / 0.85", borderRadius: 20, background: theme.bg, position: "relative", overflow: "hidden", cursor: "pointer", flexShrink: 0 }}>
+            <img src={newAlbumPhoto} alt="새 앨범 사진" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
           </label>
 
-          <label style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "14px", borderRadius: 12, background: theme.bg, color: theme.main, fontSize: 13.5, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer", textAlign: "center" }}>
-            <Camera size={16} color={theme.main} />
-            갤러리(사진첩) 열기
+          {/* 기기에서 사진 직접 선택하기 버튼 */}
+          <label style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "12px", borderRadius: 12, background: theme.bg, color: theme.main, fontSize: 13, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer", textAlign: "center", flexShrink: 0 }}>
+            <Plus size={16} color={theme.main} />
+            기기에서 사진 직접 선택하기
             <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
           </label>
+
+          {/* 한줄 코멘트 입력란 */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            <span style={{ fontSize: 12.5, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }}>한줄 코멘트</span>
+            <input
+              type="text"
+              value={oneLineComment}
+              onChange={(e) => setOneLineComment(e.target.value)}
+              placeholder="오늘의 한줄 코멘트를 남겨보세요..."
+              maxLength={45}
+              style={{
+                width: "100%",
+                padding: "13px 16px",
+                borderRadius: 12,
+                border: `1px solid ${theme.bg}`,
+                background: theme.bg,
+                fontSize: 13.5,
+                fontFamily: FONT_BODY,
+                color: theme.main,
+                outline: "none",
+              }}
+            />
+          </div>
+
+          {/* 업로드 날짜 선택 캘린더 */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span style={{ fontSize: 12.5, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }}>업로드 날짜</span>
+              <span style={{ fontSize: 12.5, fontWeight: 700, color: theme.soft, fontFamily: FONT_BODY }}>{formattedDate}</span>
+            </div>
+
+            <div style={{ background: theme.bg, borderRadius: 16, padding: "14px 12px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12, padding: "0 4px" }}>
+                <button onClick={handlePrevCalMonth} style={{ border: "none", background: "none", cursor: "pointer", padding: 4, display: "flex" }}>
+                  <ChevronLeft size={16} color={theme.main} />
+                </button>
+                <span style={{ fontSize: 13.5, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }}>
+                  {calYear}년 {calMonth}월
+                </span>
+                <button onClick={handleNextCalMonth} style={{ border: "none", background: "none", cursor: "pointer", padding: 4, display: "flex" }}>
+                  <ChevronRight size={16} color={theme.main} />
+                </button>
+              </div>
+
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", textAlign: "center", fontSize: 11, fontWeight: 600, color: theme.sub, marginBottom: 6 }}>
+                {["일", "월", "화", "수", "목", "금", "토"].map((d) => (
+                  <div key={d} style={{ padding: "4px 0" }}>{d}</div>
+                ))}
+              </div>
+
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", rowGap: 4, textAlign: "center" }}>
+                {Array.from({ length: firstDayOfWeek }).map((_, idx) => (
+                  <div key={`empty-${idx}`} />
+                ))}
+                {Array.from({ length: daysInMonth }).map((_, idx) => {
+                  const day = idx + 1;
+                  const isSelected = day === selectedDay;
+                  return (
+                    <button
+                      key={day}
+                      onClick={() => setSelectedDay(day)}
+                      style={{
+                        border: "none",
+                        background: isSelected ? theme.main : "transparent",
+                        color: isSelected ? theme.white : theme.main,
+                        fontWeight: isSelected ? 700 : 500,
+                        fontSize: 12.5,
+                        fontFamily: FONT_BODY,
+                        width: 30,
+                        height: 30,
+                        borderRadius: "50%",
+                        margin: "0 auto",
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {day}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -441,9 +567,15 @@ function ProfileScreen() {
               <div
                 key={i + monthIdx}
                 onClick={() => {
-                  if (i === 0 && !editMode) setIsAddingPhoto(true);
+                  if (editMode) return;
+                  if (i === 0) setIsAddingPhoto(true);
+                  else setViewingPhoto({
+                    src,
+                    date: photoNotes[src]?.date || `2026. ${String(monthIdx + 1).padStart(2, "0")}. 15`,
+                    comment: photoNotes[src]?.comment || "두부의 소중한 일상 기록 🐾",
+                  });
                 }}
-                style={{ cursor: i === 0 && !editMode ? "pointer" : "default" }}
+                style={{ cursor: !editMode ? "pointer" : "default" }}
               >
                 <EditImage
                   src={src}
@@ -473,6 +605,24 @@ function ProfileScreen() {
           </div>
         )}
       </div>
+
+      {/* 앨범 사진 클릭 시 날짜 & 한줄 코멘트 확인 팝업 */}
+      {viewingPhoto && (
+        <div onClick={() => setViewingPhoto(null)} style={{ position: "fixed", inset: 0, zIndex: 100, background: "rgba(0,0,0,0.65)", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px", animation: "fadeInUp 0.2s ease" }}>
+          <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: 340, background: theme.white, borderRadius: 24, overflow: "hidden", boxShadow: "0 16px 40px rgba(0,0,0,0.25)" }}>
+            <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1" }}>
+              <img src={viewingPhoto.src} alt="album detail" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              <button onClick={() => setViewingPhoto(null)} style={{ position: "absolute", top: 12, right: 12, width: 32, height: 32, borderRadius: "50%", background: "rgba(0,0,0,0.5)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+                <X size={18} color="#fff" />
+              </button>
+            </div>
+            <div style={{ padding: "16px 18px 20px" }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: theme.soft, marginBottom: 6, fontFamily: FONT_BODY }}>{viewingPhoto.date}</div>
+              <div style={{ fontSize: 14, fontWeight: 600, color: theme.main, fontFamily: FONT_BODY, lineHeight: 1.5 }}>{viewingPhoto.comment}</div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
