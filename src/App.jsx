@@ -347,6 +347,61 @@ function ProfileScreen() {
   const { theme, content, setContent, editMode, setScreen } = useApp();
   const [view, setView] = useState("grid");
   const [monthIdx, setMonthIdx] = useState(0);
+  const [isAddingPhoto, setIsAddingPhoto] = useState(false);
+  const [newAlbumPhoto, setNewAlbumPhoto] = useState("https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80");
+
+  const handlePhotoUrlClick = () => {
+    const url = window.prompt("업로드할 사진의 URL을 붙여넣으세요:", newAlbumPhoto);
+    if (url) setNewAlbumPhoto(url);
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const localUrl = URL.createObjectURL(file);
+      setNewAlbumPhoto(localUrl);
+    }
+  };
+
+  const handleAddPhotoSubmit = () => {
+    setContent((c) => ({
+      ...c,
+      // 첫 번째(+) 상자는 고정하고 그 바로 다음 칸(index 1)에 새 사진 추가
+      albumPhotos: [c.albumPhotos[0], newAlbumPhoto, ...c.albumPhotos.slice(1)],
+    }));
+    setIsAddingPhoto(false);
+  };
+
+  if (isAddingPhoto) {
+    return (
+      <div style={{ display: "flex", flexDirection: "column", height: "100%", background: theme.white, animation: "fadeInUp 0.25s ease" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 18px", borderBottom: `1px solid ${theme.bg}` }}>
+          <button onClick={() => setIsAddingPhoto(false)} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "flex" }}>
+            <X size={24} color={theme.main} />
+          </button>
+          <span style={{ fontSize: 15, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }}>새 앨범 사진</span>
+          <button onClick={handleAddPhotoSubmit} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", fontSize: 15, fontWeight: 700, color: theme.soft, fontFamily: FONT_BODY }}>
+            추가
+          </button>
+        </div>
+
+        <div className="app-scroll" style={{ flex: 1, display: "flex", flexDirection: "column", padding: "20px 18px 100px", gap: 14 }}>
+          <div onClick={handlePhotoUrlClick} style={{ width: "100%", aspectRatio: "1 / 1", borderRadius: 20, background: theme.bg, position: "relative", overflow: "hidden", cursor: "pointer" }}>
+            <img src={newAlbumPhoto} alt="새 앨범 사진" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div style={{ position: "absolute", bottom: 12, right: 12, width: 34, height: 34, borderRadius: "50%", background: "rgba(0,0,0,0.5)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Camera size={16} color="#fff" />
+            </div>
+          </div>
+
+          <label style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "12px", borderRadius: 12, background: theme.bg, color: theme.main, fontSize: 13, fontWeight: 600, fontFamily: FONT_BODY, cursor: "pointer", textAlign: "center" }}>
+            <Plus size={16} color={theme.main} />
+            기기에서 사진 직접 선택하기
+            <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
+          </label>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={{ paddingBottom: 92 }}>
@@ -374,7 +429,20 @@ function ProfileScreen() {
         {view === "grid" ? (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 3 }}>
             {content.albumPhotos.map((src, i) => (
-              <EditImage key={i + monthIdx} src={src} editMode={editMode} onChange={(url) => setContent((c) => ({ ...c, albumPhotos: c.albumPhotos.map((p, pi) => (pi === i ? url : p)) }))} style={{ width: "100%", aspectRatio: "1 / 1", borderRadius: 4 }} />
+              <div
+                key={i + monthIdx}
+                onClick={() => {
+                  if (i === 0 && !editMode) setIsAddingPhoto(true);
+                }}
+                style={{ cursor: i === 0 && !editMode ? "pointer" : "default" }}
+              >
+                <EditImage
+                  src={src}
+                  editMode={editMode}
+                  onChange={(url) => setContent((c) => ({ ...c, albumPhotos: c.albumPhotos.map((p, pi) => (pi === i ? url : p)) }))}
+                  style={{ width: "100%", aspectRatio: "1 / 1", borderRadius: 4 }}
+                />
+              </div>
             ))}
           </div>
         ) : (
