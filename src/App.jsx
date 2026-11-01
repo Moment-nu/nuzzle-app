@@ -429,14 +429,14 @@ function ProfileScreen() {
           <button onClick={() => setIsAddingPhoto(false)} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "flex" }}>
             <X size={24} color={theme.main} />
           </button>
-          <span style={{ fontSize: 15, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }}>새 앨범 사진</span>
+          <span style={{ fontSize: 15, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }}>새 앨범 사진 •</span>
           <button onClick={handleAddPhotoSubmit} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", fontSize: 15, fontWeight: 700, color: theme.soft, fontFamily: FONT_BODY }}>
             업로드
           </button>
         </div>
 
         <div className="app-scroll" style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column", padding: "18px 18px 110px", gap: 16 }}>
-          {/* 카메라 아이콘을 완전히 삭제한 깔끔한 사진 미리보기 박스 */}
+          {/* 카메라 아이콘 없는 깔끔한 미리보기 박스 */}
           <label style={{ display: "block", width: "100%", aspectRatio: "1 / 0.85", borderRadius: 20, background: theme.bg, position: "relative", overflow: "hidden", cursor: "pointer", flexShrink: 0 }}>
             <img src={newAlbumPhoto} alt="새 앨범 사진" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
