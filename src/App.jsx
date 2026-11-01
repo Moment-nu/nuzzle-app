@@ -240,9 +240,12 @@ function FeedScreen() {
     setViewState('feed');
   };
 
-  const handlePhotoClick = (setter, current) => {
-    const url = window.prompt("업로드할 사진의 URL을 붙여넣으세요:", current);
-    if (url) setter(url);
+  // 기기 갤러리(사진첩)에서 선택한 파일을 이미지로 변환
+  const handleFileSelect = (e, setter) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setter(URL.createObjectURL(file));
+    }
   };
 
   if (viewingStory) {
@@ -258,13 +261,19 @@ function FeedScreen() {
     return (
       <div style={{ display: "flex", flexDirection: "column", height: "100%", background: theme.white }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 18px", borderBottom: `1px solid ${theme.bg}` }}>
-          <button onClick={() => setViewState('feed')} style={{ background: "none", border: "none" }}><X size={24} color={theme.main} /></button>
+          <button onClick={() => setViewState('feed')} style={{ background: "none", border: "none", cursor: "pointer" }}><X size={24} color={theme.main} /></button>
           <span style={{ fontSize: 15, fontWeight: 700, color: theme.main }}>새 게시물</span>
-          <button onClick={handlePostSubmit} style={{ background: "none", border: "none", fontWeight: 700, color: theme.soft }}>공유</button>
+          <button onClick={handlePostSubmit} style={{ background: "none", border: "none", fontWeight: 700, color: theme.soft, cursor: "pointer" }}>공유</button>
         </div>
         <div className="app-scroll" style={{ flex: 1, overflowY: "auto", paddingBottom: 100 }}>
-          <div onClick={() => handlePhotoClick(setNewPostPhoto, newPostPhoto)} style={{ width: "100%", aspectRatio: "1/1.1", background: theme.bg, position: "relative" }}><img src={newPostPhoto} alt="업로드 이미지" style={{ width: "100%", height: "100%", objectFit: "cover" }} /></div>
-          <div style={{ padding: "16px 18px" }}><textarea value={newCaption} onChange={(e) => setNewCaption(e.target.value)} placeholder="일상을 공유해보세요..." style={{ width: "100%", minHeight: 120, border: "none", outline: "none", resize: "none", fontSize: 14 }} /></div>
+          <label style={{ display: "block", width: "100%", aspectRatio: "1/1.1", background: theme.bg, position: "relative", cursor: "pointer" }}>
+            <img src={newPostPhoto} alt="업로드 이미지" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div style={{ position: "absolute", bottom: 12, right: 12, padding: "8px 14px", borderRadius: 999, background: "rgba(0,0,0,0.6)", color: "#fff", fontSize: 12, fontWeight: 600, display: "flex", alignItems: "center", gap: 6 }}>
+              <Camera size={15} color="#fff" /> 사진첩에서 변경
+            </div>
+            <input type="file" accept="image/*" onChange={(e) => handleFileSelect(e, setNewPostPhoto)} style={{ display: "none" }} />
+          </label>
+          <div style={{ padding: "16px 18px" }}><textarea value={newCaption} onChange={(e) => setNewCaption(e.target.value)} placeholder="일상을 공유해보세요..." style={{ width: "100%", minHeight: 120, border: "none", outline: "none", resize: "none", fontSize: 14, fontFamily: FONT_BODY }} /></div>
         </div>
       </div>
     );
@@ -274,12 +283,18 @@ function FeedScreen() {
     return (
       <div style={{ display: "flex", flexDirection: "column", height: "100%", background: theme.white }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 18px", borderBottom: `1px solid ${theme.bg}` }}>
-          <button onClick={() => setViewState('feed')} style={{ background: "none", border: "none" }}><X size={24} color={theme.main} /></button>
+          <button onClick={() => setViewState('feed')} style={{ background: "none", border: "none", cursor: "pointer" }}><X size={24} color={theme.main} /></button>
           <span style={{ fontSize: 15, fontWeight: 700, color: theme.main }}>새 스토리</span>
-          <button onClick={handleStorySubmit} style={{ background: "none", border: "none", fontWeight: 700, color: theme.soft }}>추가</button>
+          <button onClick={handleStorySubmit} style={{ background: "none", border: "none", fontWeight: 700, color: theme.soft, cursor: "pointer" }}>추가</button>
         </div>
         <div className="app-scroll" style={{ flex: 1, display: "flex", flexDirection: "column", paddingBottom: 100 }}>
-          <div onClick={() => handlePhotoClick(setNewStoryPhoto, newStoryPhoto)} style={{ margin: "20px 18px", flex: 1, borderRadius: 20, background: theme.bg, position: "relative", overflow: "hidden", minHeight: 400 }}><img src={newStoryPhoto} alt="스토리 이미지" style={{ width: "100%", height: "100%", objectFit: "cover" }} /></div>
+          <label style={{ display: "block", margin: "20px 18px", flex: 1, borderRadius: 20, background: theme.bg, position: "relative", overflow: "hidden", minHeight: 400, cursor: "pointer" }}>
+            <img src={newStoryPhoto} alt="스토리 이미지" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div style={{ position: "absolute", bottom: 16, right: 16, padding: "8px 14px", borderRadius: 999, background: "rgba(0,0,0,0.6)", color: "#fff", fontSize: 12, fontWeight: 600, display: "flex", alignItems: "center", gap: 6 }}>
+              <Camera size={15} color="#fff" /> 사진첩에서 변경
+            </div>
+            <input type="file" accept="image/*" onChange={(e) => handleFileSelect(e, setNewStoryPhoto)} style={{ display: "none" }} />
+          </label>
         </div>
       </div>
     );
@@ -324,6 +339,339 @@ function FeedScreen() {
           </div>
         ))}
       </div>
+      {activeCommentPost && (
+        <div style={{ position: "fixed", inset: 0, zIndex: 50, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)" }} onClick={() => setActiveCommentPost(null)} />
+          <div style={{ background: theme.white, borderRadius: "24px 24px 0 0", padding: "20px", position: "relative", zIndex: 51, animation: "fadeInUp 0.3s ease" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
+              <span style={{ fontWeight: 700, fontFamily: FONT_BODY, color: theme.main }}>댓글 달기</span>
+              <button onClick={() => setActiveCommentPost(null)} style={{ border: "none", background: "none", cursor: "pointer" }}><X size={20} color={theme.main}/></button>
+            </div>
+            <div style={{ display: "flex", gap: 10 }}>
+              <input type="text" value={commentText} onChange={e => setCommentText(e.target.value)} placeholder="댓글을 입력하세요..." style={{ flex: 1, padding: "12px 16px", borderRadius: 999, border: `1px solid ${theme.bg}`, outline: "none", fontFamily: FONT_BODY, fontSize: 14 }} />
+              <button onClick={handleAddComment} style={{ background: theme.main, color: theme.white, border: "none", padding: "0 20px", borderRadius: 999, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer" }}>등록</button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ProfileScreen() {
+  const { theme, content, setContent, editMode, setScreen } = useApp();
+  const [view, setView] = useState("grid");
+  const [monthIdx, setMonthIdx] = useState(0);
+  const [isAddingPhoto, setIsAddingPhoto] = useState(false);
+  const [newAlbumPhoto, setNewAlbumPhoto] = useState("https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&q=80");
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setNewAlbumPhoto(URL.createObjectURL(file));
+    }
+  };
+
+  const handleAddPhotoSubmit = () => {
+    setContent((c) => ({
+      ...c,
+      albumPhotos: [c.albumPhotos[0], newAlbumPhoto, ...c.albumPhotos.slice(1)],
+    }));
+    setIsAddingPhoto(false);
+  };
+
+  if (isAddingPhoto) {
+    return (
+      <div style={{ display: "flex", flexDirection: "column", height: "100%", background: theme.white, animation: "fadeInUp 0.25s ease" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 18px", borderBottom: `1px solid ${theme.bg}` }}>
+          <button onClick={() => setIsAddingPhoto(false)} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "flex" }}>
+            <X size={24} color={theme.main} />
+          </button>
+          <span style={{ fontSize: 15, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }}>새 앨범 사진</span>
+          <button onClick={handleAddPhotoSubmit} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", fontSize: 15, fontWeight: 700, color: theme.soft, fontFamily: FONT_BODY }}>
+            추가
+          </button>
+        </div>
+
+        <div className="app-scroll" style={{ flex: 1, display: "flex", flexDirection: "column", padding: "20px 18px 100px", gap: 14 }}>
+          <label style={{ display: "block", width: "100%", aspectRatio: "1 / 1", borderRadius: 20, background: theme.bg, position: "relative", overflow: "hidden", cursor: "pointer" }}>
+            <img src={newAlbumPhoto} alt="새 앨범 사진" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div style={{ position: "absolute", bottom: 12, right: 12, padding: "8px 14px", borderRadius: 999, background: "rgba(0,0,0,0.6)", color: "#fff", fontSize: 12, fontWeight: 600, display: "flex", alignItems: "center", gap: 6 }}>
+              <Camera size={15} color="#fff" /> 사진첩에서 선택
+            </div>
+            <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
+          </label>
+
+          <label style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "14px", borderRadius: 12, background: theme.bg, color: theme.main, fontSize: 13.5, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer", textAlign: "center" }}>
+            <Camera size={16} color={theme.main} />
+            갤러리(사진첩) 열기
+            <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
+          </label>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ paddingBottom: 92 }}>
+      <div style={{ position: "sticky", top: -1, zIndex: 20, background: theme.white, paddingBottom: 20, borderRadius: "0 0 24px 24px", boxShadow: "0 4px 16px rgba(107,91,82,0.04)" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 18px 12px" }}>
+          <button onClick={() => setView(view === "grid" ? "timeline" : "grid")} style={{ border: "none", background: "none", cursor: "pointer", padding: 0, display: "flex" }}>
+            {view === "grid" ? <ListIcon size={25} color={theme.main} /> : <LayoutGrid size={20} color={theme.main} />}
+          </button>
+          <Settings size={25} color={theme.main} style={{ cursor: "pointer" }} onClick={() => setScreen('settings')} />
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 4 }}>
+          <EditImage src={content.petAvatar} editMode={editMode} onChange={(url) => setContent((c) => ({ ...c, petAvatar: url }))} style={{ width: 110, height: 110, borderRadius: "50%", border: `3px solid ${theme.white}`, boxShadow: "0 4px 16px rgba(107,91,82,0.15)" }} />
+          <EditText value={content.petName} editMode={editMode} onChange={(v) => setContent((c) => ({ ...c, petName: v }))} style={{ fontFamily: FONT_BODY, fontWeight: 700, fontSize: 15, color: theme.main, marginTop: 12 }} />
+        </div>
+        {view === "grid" && (
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginTop: 16 }}>
+            <button onClick={() => setMonthIdx((i) => Math.max(0, i - 1))} style={{ border: "none", background: "none", cursor: "pointer" }}><ChevronLeft size={16} color={theme.sub} /></button>
+            <span style={{ fontSize: 13, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY, width: 40, textAlign: "center" }}>{content.albumMonths[monthIdx]?.replace(".", "")}</span>
+            <button onClick={() => setMonthIdx((i) => Math.min(content.albumMonths.length - 1, i + 1))} style={{ border: "none", background: "none", cursor: "pointer" }}><ChevronRight size={16} color={theme.sub} /></button>
+          </div>
+        )}
+      </div>
+
+      <div style={{ padding: view === "timeline" ? "16px 14px" : "12px 3px" }}>
+        {view === "grid" ? (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 3 }}>
+            {content.albumPhotos.map((src, i) => (
+              <div
+                key={i + monthIdx}
+                onClick={() => {
+                  if (i === 0 && !editMode) setIsAddingPhoto(true);
+                }}
+                style={{ cursor: i === 0 && !editMode ? "pointer" : "default" }}
+              >
+                <EditImage
+                  src={src}
+                  editMode={editMode}
+                  onChange={(url) => setContent((c) => ({ ...c, albumPhotos: c.albumPhotos.map((p, pi) => (pi === i ? url : p)) }))}
+                  style={{ width: "100%", aspectRatio: "1 / 1", borderRadius: 4 }}
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            {content.timelinePhotos.map((t, i) => (
+              <div 
+                key={i} 
+                onClick={() => {
+                  const foundIdx = content.albumMonths.findIndex((m) => m === t.month);
+                  if (foundIdx !== -1) setMonthIdx(foundIdx);
+                  setView("grid");
+                }}
+                style={{ background: theme.white, borderRadius: 20, overflow: "hidden", boxShadow: "0 4px 12px rgba(107,91,82,0.03)", position: "relative", cursor: "pointer" }}
+              >
+                <EditImage src={t.img} editMode={editMode} onChange={(url) => setContent((c) => ({ ...c, timelinePhotos: c.timelinePhotos.map((tp, ti) => (ti === i ? { ...tp, img: url } : tp)) }))} style={{ width: "100%", height: 160 }} />
+                <span style={{ position: "absolute", top: 12, left: 12, background: theme.sage, color: theme.white, fontSize: 11.5, fontWeight: 700, fontFamily: FONT_BODY, padding: "4px 10px", borderRadius: 8, boxShadow: "0 2px 8px rgba(0,0,0,0.15)" }}>{t.month}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function CategoryScreen() {
+  const { theme, content, setContent, editMode } = useApp();
+  const [activeCat, setActiveCat] = useState('all');
+  const [isWriting, setIsWriting] = useState(false);
+  const [detailPost, setDetailPost] = useState(null);
+  const [newPhoto, setNewPhoto] = useState("https://i.pinimg.com/1200x/2f/db/93/2fdb93c046bcfdf4e2c156cb7f6335cc.jpg");
+  const [newCatLabel, setNewCatLabel] = useState(content.categories[0]?.label || "산책");
+  const [newCaption, setNewCaption] = useState("");
+  
+  const [commentText, setCommentText] = useState("");
+  const [activeCommentPost, setActiveCommentPost] = useState(null);
+
+  const updateCat = (id, label) => setContent((c) => ({ ...c, categories: c.categories.map((cat) => (cat.id === id ? { ...cat, label } : cat)) }));
+  const removeCat = (id) => setContent((c) => ({ ...c, categories: c.categories.filter((cat) => cat.id !== id) }));
+  
+  const updatePost = (id, patch) => setContent((c) => ({ ...c, communityPosts: c.communityPosts.map((p) => (p.id === id ? { ...p, ...patch } : p)) }));
+  
+  const toggleLike = (post, e) => {
+    if (e) e.stopPropagation();
+    const isLiked = post.hasLiked;
+    updatePost(post.id, { hasLiked: !isLiked, likes: post.likes + (isLiked ? -1 : 1) });
+    if (detailPost && detailPost.id === post.id) {
+      setDetailPost({ ...detailPost, hasLiked: !isLiked, likes: detailPost.likes + (isLiked ? -1 : 1) });
+    }
+  };
+
+  const handleShare = (post, e) => {
+    if (e) e.stopPropagation();
+    if (navigator.share) navigator.share({ title: 'nuzzle', text: post.caption, url: post.photo }).catch(()=>{});
+    else alert("공유 링크가 클립보드에 복사되었습니다.");
+  };
+
+  const handleAddComment = () => {
+    if (!commentText.trim()) return;
+    const post = content.communityPosts.find(p => p.id === activeCommentPost);
+    updatePost(activeCommentPost, { comments: post.comments + 1 });
+    if (detailPost && detailPost.id === activeCommentPost) {
+      setDetailPost({ ...detailPost, comments: detailPost.comments + 1 });
+    }
+    setCommentText(""); alert("댓글이 등록되었습니다."); 
+  };
+
+  const displayCategories = [{ id: 'all', label: 'ALL', icon: 'LayoutGrid' }, ...content.categories];
+  const filteredPosts = content.communityPosts.filter((p) => {
+    if (activeCat === 'all') return true;
+    const targetCategory = content.categories.find(c => c.id === activeCat);
+    return targetCategory && p.category === targetCategory.label;
+  });
+
+  const handlePostSubmit = () => {
+    if (!newCaption.trim()) return alert("내용을 입력해 주세요!");
+    const newPost = { id: Date.now(), category: newCatLabel, avatar: content.petAvatar, nickname: content.petName, photo: newPhoto, caption: newCaption, likes: 0, comments: 0, hasLiked: false };
+    setContent((c) => ({ ...c, communityPosts: [newPost, ...c.communityPosts] }));
+    setNewCaption(""); setIsWriting(false); setActiveCat('all');
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setNewPhoto(URL.createObjectURL(file));
+    }
+  };
+
+  if (isWriting) {
+    return (
+      <div style={{ display: "flex", flexDirection: "column", height: "100%", background: theme.white, animation: "fadeInUp 0.3s ease" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 18px", borderBottom: `1px solid ${theme.bg}`, position: "sticky", top: 0, background: theme.white, zIndex: 10 }}>
+          <button onClick={() => setIsWriting(false)} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "flex" }}><X size={24} color={theme.main} /></button>
+          <span style={{ fontSize: 15, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }}>새 게시물</span>
+          <button onClick={handlePostSubmit} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", fontSize: 15, fontWeight: 700, color: theme.soft, fontFamily: FONT_BODY }}>공유</button>
+        </div>
+        <div className="app-scroll" style={{ flex: 1, overflowY: "auto", paddingBottom: 100 }}>
+          <label style={{ display: "block", width: "100%", aspectRatio: "1 / 1", background: theme.bg, position: "relative", cursor: "pointer", overflow: "hidden" }}>
+            <img src={newPhoto} alt="업로드 이미지" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div style={{ position: "absolute", bottom: 12, right: 12, padding: "8px 14px", borderRadius: 999, background: "rgba(0,0,0,0.6)", color: "#fff", fontSize: 12, fontWeight: 600, display: "flex", alignItems: "center", gap: 6 }}>
+              <Camera size={15} color="#fff" /> 사진첩에서 변경
+            </div>
+            <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
+          </label>
+          <div style={{ padding: "20px 18px 12px" }}>
+            <div style={{ fontSize: 12, fontWeight: 700, color: theme.sub, marginBottom: 12, fontFamily: FONT_BODY }}>카테고리 선택</div>
+            <div className="app-scroll" style={{ display: "flex", gap: 8, overflowX: "auto" }}>
+              {content.categories.map((cat) => (
+                <button key={cat.id} onClick={() => setNewCatLabel(cat.label)} style={{ flexShrink: 0, padding: "8px 16px", borderRadius: 999, border: "none", cursor: "pointer", fontSize: 13, fontWeight: 600, fontFamily: FONT_BODY, background: newCatLabel === cat.label ? theme.main : theme.bg, color: newCatLabel === cat.label ? theme.white : theme.main, boxShadow: newCatLabel === cat.label ? "0 4px 10px rgba(107,91,82,0.2)" : "none" }}>{cat.label}</button>
+              ))}
+            </div>
+          </div>
+          <div style={{ padding: "12px 18px" }}><textarea value={newCaption} onChange={(e) => setNewCaption(e.target.value)} placeholder="반려동물과의 일상을 공유해보세요..." style={{ width: "100%", minHeight: 120, border: "none", outline: "none", resize: "none", fontSize: 14, fontFamily: FONT_BODY, color: theme.main, background: "transparent", lineHeight: 1.6 }} /></div>
+        </div>
+      </div>
+    );
+  }
+
+  if (detailPost) {
+    return (
+      <div style={{ display: "flex", flexDirection: "column", height: "100%", background: theme.white, animation: "fadeInUp 0.2s ease" }}>
+        <div style={{ display: "flex", alignItems: "center", padding: "16px 18px", borderBottom: `1px solid ${theme.bg}`, position: "sticky", top: 0, background: theme.white, zIndex: 10 }}>
+          <button onClick={() => setDetailPost(null)} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: "flex" }}>
+            <ChevronLeft size={28} color={theme.main} />
+          </button>
+          <span style={{ flex: 1, textAlign: "center", fontSize: 16, fontWeight: 700, color: theme.main, marginRight: 28, fontFamily: FONT_BODY }}>{detailPost.category}</span>
+        </div>
+        <div className="app-scroll" style={{ flex: 1, overflowY: "auto", paddingBottom: 100 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "16px 18px 12px" }}>
+            <EditImage src={detailPost.avatar} editMode={editMode} onChange={(url) => updatePost(detailPost.id, { avatar: url })} style={{ width: 34, height: 34, borderRadius: "50%" }} />
+            <EditText value={detailPost.nickname} editMode={editMode} onChange={(v) => updatePost(detailPost.id, { nickname: v })} style={{ fontSize: 13.5, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }} />
+          </div>
+          <EditImage src={detailPost.photo} editMode={editMode} onChange={(url) => updatePost(detailPost.id, { photo: url })} style={{ width: "100%", aspectRatio: "1 / 1.1" }} />
+          <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "12px 18px 6px" }}>
+            <span style={{ display: "flex", alignItems: "center", gap: 4, cursor: "pointer" }} onClick={(e) => toggleLike(detailPost, e)}>
+              <Heart size={21} fill={detailPost.hasLiked ? theme.soft : "none"} color={detailPost.hasLiked ? theme.soft : theme.sub} strokeWidth={2} />
+              <span style={{ fontSize: 13, color: theme.main, fontWeight: 500 }}>{detailPost.likes}</span>
+            </span>
+            <span style={{ display: "flex", alignItems: "center", gap: 4, cursor: "pointer" }} onClick={() => setActiveCommentPost(detailPost.id)}>
+              <MessageCircle size={21} color={theme.sub} strokeWidth={2} />
+              <span style={{ fontSize: 13, color: theme.main, fontWeight: 500 }}>{detailPost.comments}</span>
+            </span>
+            <Share2 size={19} color={theme.sub} strokeWidth={2} cursor="pointer" onClick={(e) => handleShare(detailPost, e)} />
+          </div>
+          <div style={{ padding: "6px 18px 24px" }}>
+            <EditText value={detailPost.caption} editMode={editMode} onChange={(v) => updatePost(detailPost.id, { caption: v })} style={{ fontSize: 14, color: theme.main, fontFamily: FONT_BODY, lineHeight: 1.6 }} />
+          </div>
+        </div>
+        {activeCommentPost && (
+          <div style={{ position: "fixed", inset: 0, zIndex: 50, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+            <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)" }} onClick={() => setActiveCommentPost(null)} />
+            <div style={{ background: theme.white, borderRadius: "24px 24px 0 0", padding: "20px", position: "relative", zIndex: 51, animation: "fadeInUp 0.3s ease" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
+                <span style={{ fontWeight: 700, fontFamily: FONT_BODY, color: theme.main }}>댓글 달기</span>
+                <button onClick={() => setActiveCommentPost(null)} style={{ border: "none", background: "none", cursor: "pointer" }}><X size={20} color={theme.main}/></button>
+              </div>
+              <div style={{ display: "flex", gap: 10 }}>
+                <input type="text" value={commentText} onChange={e => setCommentText(e.target.value)} placeholder="댓글을 입력하세요..." style={{ flex: 1, padding: "12px 16px", borderRadius: 999, border: `1px solid ${theme.bg}`, outline: "none", fontFamily: FONT_BODY, fontSize: 14 }} />
+                <button onClick={handleAddComment} style={{ background: theme.main, color: theme.white, border: "none", padding: "0 20px", borderRadius: 999, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer" }}>등록</button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", minHeight: "100%" }}>
+      <div style={{ background: theme.white, padding: "16px 18px 12px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <Logo size={12} />
+          <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 8, background: theme.bg, borderRadius: 999, padding: "9px 16px", border: "none" }}><Search size={15} color={theme.sage} /><span style={{ fontSize: 13, color: theme.sub, fontFamily: FONT_BODY }}>검색</span></div>
+        </div>
+      </div>
+      <div className="app-scroll" style={{ position: "sticky", top: -1, zIndex: 20, background: theme.white, padding: "4px 18px 16px", borderRadius: "0 0 24px 24px", boxShadow: "0 4px 16px rgba(107,91,82,0.06)", display: "flex", gap: 10, overflowX: "auto", scrollBehavior: "smooth" }}>
+        {displayCategories.map((cat) => {
+          const Icon = cat.id === 'all' ? LayoutGrid : (ICONS[cat.icon] || PawPrint);
+          const isActive = activeCat === cat.id;
+          return (
+            <div key={cat.id} style={{ position: "relative", flexShrink: 0, textAlign: "center" }}>
+              <button onClick={() => setActiveCat(cat.id)} style={{ width: 48, height: 48, borderRadius: "50%", border: "none", cursor: "pointer", background: isActive ? theme.main : theme.bg, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.2s ease", boxShadow: isActive ? "0 4px 10px rgba(107,91,82,0.2)" : "none" }}><Icon size={20} color={isActive ? theme.white : theme.sub} strokeWidth={2} /></button>
+              {editMode && cat.id !== 'all' && <button onClick={() => removeCat(cat.id)} style={{ position: "absolute", top: -4, right: -4, width: 16, height: 16, borderRadius: "50%", background: theme.main, border: `1.5px solid ${theme.white}`, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}><X size={9} color="#fff" /></button>}
+              <div style={{ marginTop: 6 }}>{cat.id === 'all' ? <span style={{ display: "block", fontSize: 10.5, color: isActive ? theme.main : theme.sub, fontWeight: isActive ? 700 : 500, fontFamily: FONT_BODY }}>{cat.label}</span> : <EditText value={cat.label} editMode={editMode} onChange={(v) => updateCat(cat.id, v)} style={{ display: "block", fontSize: 10.5, color: isActive ? theme.main : theme.sub, fontWeight: isActive ? 700 : 500, fontFamily: FONT_BODY }} />}</div>
+            </div>
+          );
+        })}
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 16, padding: "16px 14px" }}>
+        {filteredPosts.length > 0 ? (
+          filteredPosts.map((p) => {
+            const postCatData = content.categories.find(c => c.label === p.category);
+            const BadgeIcon = postCatData ? (ICONS[postCatData.icon] || PawPrint) : PawPrint;
+            return (
+              <div key={p.id} onClick={() => !editMode && setDetailPost(p)} style={{ background: theme.white, borderRadius: 20, paddingBottom: 16, boxShadow: "0 4px 12px rgba(107,91,82,0.03)", animation: "fadeInUp 0.3s ease", overflow: "hidden", cursor: "pointer" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "16px 18px 12px" }}>
+                  <EditImage src={p.avatar} editMode={editMode} onChange={(url) => updatePost(p.id, { avatar: url })} style={{ width: 34, height: 34, borderRadius: "50%" }} />
+                  <EditText value={p.nickname} editMode={editMode} onChange={(v) => updatePost(p.id, { nickname: v })} style={{ fontSize: 13.5, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY }} />
+                  <div style={{ width: 28, height: 28, background: theme.soft, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", marginLeft: "auto", boxShadow: "0 2px 8px rgba(107,91,82,0.15)" }}><BadgeIcon size={14} color={theme.white} strokeWidth={2.5} /></div>
+                </div>
+                <div style={{ position: "relative" }}>
+                  <EditImage src={p.photo} editMode={editMode} onChange={(url) => updatePost(p.id, { photo: url })} style={{ width: "100%", height: 180 }} />
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "rgba(107,91,82,0.85)", padding: "10px 0", display: "flex", justifyContent: "center", gap: 24 }}>
+                    <span onClick={(e) => toggleLike(p, e)} style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500, cursor: "pointer" }}><Heart size={15} fill={p.hasLiked ? "#fff" : "none"} color="#fff" /> {p.likes}</span>
+                    <span onClick={(e) => { e.stopPropagation(); setActiveCommentPost(p.id); }} style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500, cursor: "pointer" }}><MessageCircle size={15} /> {p.comments}</span>
+                    <span onClick={(e) => handleShare(p, e)} style={{ display: "flex", alignItems: "center", gap: 5, color: "#fff", fontSize: 12.5, fontFamily: FONT_BODY, fontWeight: 500, cursor: "pointer" }}><Share2 size={15} /></span>
+                  </div>
+                </div>
+                <div style={{ padding: "14px 18px 0" }}><EditText value={p.caption} editMode={editMode} onChange={(v) => updatePost(p.id, { caption: v })} style={{ fontSize: 13, color: theme.main, fontFamily: FONT_BODY, lineHeight: 1.6 }} /></div>
+              </div>
+            )
+          })
+        ) : (
+          <div style={{ padding: "60px 0", textAlign: "center", color: theme.sub, fontSize: 13, fontFamily: FONT_BODY, animation: "fadeInUp 0.3s ease" }}>해당 카테고리의 게시물이 아직 없습니다. 🐶</div>
+        )}
+      </div>
+      <div style={{ flex: 1 }}></div>
+      <div style={{ position: "sticky", bottom: 85, alignSelf: "flex-end", marginRight: 18, zIndex: 50 }}><button onClick={() => setIsWriting(true)} style={{ width: 56, height: 56, borderRadius: "50%", background: theme.main, border: "none", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 6px 16px rgba(107,91,82,0.3)", cursor: "pointer", transition: "transform 0.2s ease" }}><Pencil size={24} color={theme.white} style={{ transform: "translate(1px, -1px)" }} /></button></div>
+      <div style={{ height: 92, flexShrink: 0 }}></div>
+
       {activeCommentPost && (
         <div style={{ position: "fixed", inset: 0, zIndex: 50, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
           <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)" }} onClick={() => setActiveCommentPost(null)} />
