@@ -686,18 +686,13 @@ function MapScreen() {
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 100, background: `linear-gradient(to bottom, ${theme.bg}dd, transparent)`, zIndex: 1, pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 150, background: `linear-gradient(to top, ${theme.bg}f2, transparent)`, zIndex: 1, pointerEvents: "none" }} />
 
-        {/* 현재 위치 활성화 시 상단 배지 & 중앙 마커 표시 */}
+        {/* 현재 위치 활성화 시 상단 갈색 바 없이 중앙 마커만 표시 */}
         {showLocation && (
-          <>
-            <div style={{ position: "absolute", top: 108, left: "50%", transform: "translateX(-50%)", background: "rgba(107,91,82,0.92)", color: "#fff", padding: "6px 14px", borderRadius: 999, fontSize: 11.5, fontWeight: 600, fontFamily: FONT_BODY, zIndex: 15, boxShadow: "0 4px 12px rgba(0,0,0,0.15)", whiteSpace: "nowrap", animation: "fadeInDown 0.25s ease" }}>
-              📍 현위치: 성동구 서울숲2길 32-14 (갤러리아포레)
+          <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 6, pointerEvents: "none" }}>
+            <div style={{ width: 15, height: 15, background: "#ff4b4b", borderRadius: "50%", border: "2.5px solid #fff", boxShadow: "0 2px 6px rgba(0,0,0,0.3)", position: "relative" }}>
+              <div style={{ position: "absolute", inset: -10, borderRadius: "50%", background: "rgba(255, 75, 75, 0.4)", animation: "pulse 1.5s infinite" }} />
             </div>
-            <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 6, pointerEvents: "none" }}>
-              <div style={{ width: 15, height: 15, background: "#ff4b4b", borderRadius: "50%", border: "2.5px solid #fff", boxShadow: "0 2px 6px rgba(0,0,0,0.3)", position: "relative" }}>
-                <div style={{ position: "absolute", inset: -10, borderRadius: "50%", background: "rgba(255, 75, 75, 0.4)", animation: "pulse 1.5s infinite" }} />
-              </div>
-            </div>
-          </>
+          </div>
         )}
 
         <div style={{ position: "absolute", inset: 0, zIndex: 5 }}>
@@ -716,20 +711,23 @@ function MapScreen() {
           })}
         </div>
 
-        {selected && (
-          <div style={{ position: "absolute", left: 18, right: 18, bottom: 85, background: theme.white, borderRadius: 16, padding: "14px 16px", display: "flex", alignItems: "center", gap: 12, boxShadow: "0 8px 24px rgba(107,91,82,0.15)", zIndex: 10, animation: "fadeInUp 0.3s ease" }}>
-            <div style={{ width: 40, height: 40, borderRadius: "50%", background: `${theme.soft}20`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><MapPin size={20} color={theme.soft} strokeWidth={2.5} /></div>
-            <div style={{ flex: 1 }}>
-              <EditText value={selected.name} editMode={editMode} onChange={(v) => { setContent((c) => ({ ...c, spots: c.spots.map((sp) => (sp.id === selected.id ? { ...sp, name: v } : sp)) })); setSelected((sel) => ({ ...sel, name: v })); }} style={{ fontSize: 14, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY, marginBottom: 2 }} />
-              <div style={{ fontSize: 11.5, color: theme.sub, fontFamily: FONT_BODY, fontWeight: 500 }}>{selected.tag} {selected.desc ? `· ${selected.desc}` : ""}</div>
-            </div>
-            <button onClick={() => alert(`[${selected.name}]\n분류: ${selected.tag}\n위치: 서울숲2길 갤러리아포레 인근 (${selected.desc || "반려동물 동반 가능"})`)} style={{ border: "none", background: theme.main, color: theme.white, padding: "8px 14px", borderRadius: 999, fontSize: 12, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer", flexShrink: 0 }}>상세보기</button>
-          </div>
-        )}
+        {/* 내 위치 아이콘과 하단 상세 정보 박스가 절대 겹치지 않도록 하나의 컨테이너로 배치 */}
+        <div style={{ position: "absolute", left: 18, right: 18, bottom: 90, zIndex: 10, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 14, pointerEvents: "none" }}>
+          <button onClick={handleLocateClick} style={{ pointerEvents: "auto", width: 44, height: 44, borderRadius: "50%", background: showLocation ? theme.main : theme.white, border: "none", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 14px rgba(107,91,82,0.2)", cursor: "pointer", transition: "all 0.3s ease", opacity: locating ? 0.6 : 1 }}>
+            <LocateFixed size={20} color={showLocation ? theme.white : theme.main} strokeWidth={2.5} />
+          </button>
 
-        <button onClick={handleLocateClick} style={{ position: "absolute", right: 16, bottom: selected ? 185 : 85, width: 44, height: 44, borderRadius: "50%", background: showLocation ? theme.main : theme.white, border: "none", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 14px rgba(107,91,82,0.2)", cursor: "pointer", zIndex: 10, transition: "all 0.3s ease", opacity: locating ? 0.6 : 1 }}>
-          <LocateFixed size={20} color={showLocation ? theme.white : theme.main} strokeWidth={2.5} />
-        </button>
+          {selected && (
+            <div style={{ pointerEvents: "auto", width: "100%", background: theme.white, borderRadius: 16, padding: "14px 16px", display: "flex", alignItems: "center", gap: 12, boxShadow: "0 8px 24px rgba(107,91,82,0.15)", animation: "fadeInUp 0.3s ease" }}>
+              <div style={{ width: 40, height: 40, borderRadius: "50%", background: `${theme.soft}20`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><MapPin size={20} color={theme.soft} strokeWidth={2.5} /></div>
+              <div style={{ flex: 1 }}>
+                <EditText value={selected.name} editMode={editMode} onChange={(v) => { setContent((c) => ({ ...c, spots: c.spots.map((sp) => (sp.id === selected.id ? { ...sp, name: v } : sp)) })); setSelected((sel) => ({ ...sel, name: v })); }} style={{ fontSize: 14, fontWeight: 700, color: theme.main, fontFamily: FONT_BODY, marginBottom: 2 }} />
+                <div style={{ fontSize: 11.5, color: theme.sub, fontFamily: FONT_BODY, fontWeight: 500 }}>{selected.tag} {selected.desc ? `· ${selected.desc}` : ""}</div>
+              </div>
+              <button onClick={() => alert(`[${selected.name}]\n분류: ${selected.tag}\n위치: 서울숲2길 갤러리아포레 인근 (${selected.desc || "반려동물 동반 가능"})`)} style={{ border: "none", background: theme.main, color: theme.white, padding: "8px 14px", borderRadius: 999, fontSize: 12, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer", flexShrink: 0 }}>상세보기</button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
