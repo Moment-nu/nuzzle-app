@@ -436,16 +436,15 @@ function ProfileScreen() {
         </div>
 
         <div className="app-scroll" style={{ flex: 1, overflowY: "auto", display: "flex", flexDirection: "column", padding: "18px 18px 110px", gap: 16 }}>
-          {/* 예시 사진 (우측 하단 카메라 아이콘 삭제 완료) */}
+          {/* 카메라 아이콘을 완전히 삭제한 깔끔한 사진 미리보기 박스 */}
           <label style={{ display: "block", width: "100%", aspectRatio: "1 / 0.85", borderRadius: 20, background: theme.bg, position: "relative", overflow: "hidden", cursor: "pointer", flexShrink: 0 }}>
             <img src={newAlbumPhoto} alt="새 앨범 사진" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
           </label>
 
-          {/* 기기에서 사진 직접 선택하기 버튼 */}
           <label style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, padding: "12px", borderRadius: 12, background: theme.bg, color: theme.main, fontSize: 13, fontWeight: 700, fontFamily: FONT_BODY, cursor: "pointer", textAlign: "center", flexShrink: 0 }}>
-            <Plus size={16} color={theme.main} />
-            기기에서 사진 직접 선택하기
+            <Camera size={16} color={theme.main} />
+            사진첩에서 사진 선택하기
             <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: "none" }} />
           </label>
 
@@ -606,7 +605,6 @@ function ProfileScreen() {
         )}
       </div>
 
-      {/* 앨범 사진 클릭 시 날짜 & 한줄 코멘트 확인 팝업 */}
       {viewingPhoto && (
         <div onClick={() => setViewingPhoto(null)} style={{ position: "fixed", inset: 0, zIndex: 100, background: "rgba(0,0,0,0.65)", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px", animation: "fadeInUp 0.2s ease" }}>
           <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: 340, background: theme.white, borderRadius: 24, overflow: "hidden", boxShadow: "0 16px 40px rgba(0,0,0,0.25)" }}>
